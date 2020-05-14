@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ConnectMe</string>
+
+    <string-array name="branches">
+        <item>CS</item>
+        <item>ECE</item>
+        <item>EEE</item>
+        <item>ENI</item>
+        <item>Mechanical</item>
+        <item>Chemical</item>
+    </string-array>
+
+</resources>

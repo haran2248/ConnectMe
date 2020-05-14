@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "309985618805",
+    "firebase_url": "https://connectme-f750c.firebaseio.com",
+    "project_id": "connectme-f750c",
+    "storage_bucket": "connectme-f750c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309985618805:android:410c963604cff46044413c",
+        "android_client_info": {
+          "package_name": "com.example.connectme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "309985618805-2gm5icq4gno1pm0e3jgl7pa07cuqnj1a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKdrXufqEAt5axmzYM4ITjtkOk55qrd3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "309985618805-2gm5icq4gno1pm0e3jgl7pa07cuqnj1a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
