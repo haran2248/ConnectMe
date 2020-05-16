@@ -22,22 +22,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/profile_pic"
-        android:layout_marginLeft="130dp"
+        android:layout_marginLeft="185dp"
         android:layout_marginTop="33dp"
         android:text="Name" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FamilyName"
-        android:layout_below="@+id/profile_pic"
-        android:layout_toRightOf="@+id/name"
-        android:layout_centerHorizontal="true"
-        android:paddingLeft="10dp"
-        android:id="@+id/family_name"
-        android:layout_marginTop="33dp"
-        android:layout_marginRight="50dp"
-        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

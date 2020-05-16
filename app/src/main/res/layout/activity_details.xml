@@ -270,32 +270,32 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Male"
+            android:text="1st"
             android:paddingRight="10dp"
             android:id="@+id/year1"
             />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female"
+            android:text="2nd"
             android:id="@+id/year2"
             />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female"
+            android:text="3rd"
             android:id="@+id/year3"
             />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female"
+            android:text="4th"
             android:id="@+id/year4"
             />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female"
+            android:text="5th"
             android:id="@+id/year5"
             />
 
@@ -304,7 +304,7 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="upload"
+        android:text="upload a cute picture"
         android:textColor="#FCFDFD"
         android:id="@+id/upload"
         android:backgroundTint="@color/colorPrimary"

@@ -29,7 +29,7 @@ public class Profile extends AppCompatActivity implements GoogleApiClient.OnConn
    private MaterialButton nextActivity,logout;
   private   TextView name,email,id,family_name;
    private ImageView profile;
-   String Fbname,FbEmail,Fbid,Fn;
+   String Fbname="",FbEmail="",Fbid="",Fn="";
    FirebaseAuth auth;
    DatabaseReference databaseReference;
     GoogleSignInClient mGoogleSignInClient;
@@ -45,6 +45,7 @@ private GoogleSignInOptions gso;
                 .build();
         // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        databaseReference=FirebaseDatabase.getInstance().getReference();
         nextActivity=findViewById(R.id.next);
         logout=findViewById(R.id.logout);
         name=findViewById(R.id.name);
@@ -68,13 +69,16 @@ logout.setOnClickListener(new View.OnClickListener() {
 
     }
 });
+        final GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
 nextActivity.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("name").setValue(Fbname);
-        databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Email").setValue(FbEmail);
-        databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("IDno").setValue(Fbid);
-        databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("familyName").setValue(Fn);
+        if (acct != null) {
+            databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("name").setValue(acct.getDisplayName());
+        }
+        databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Email").setValue(acct.getEmail());
+        databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("IDno").setValue(acct.getId());
+        databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("familyName").setValue(acct.getFamilyName());
         Intent next=new Intent(Profile.this, Details.class);
         startActivity(next);
 
@@ -84,16 +88,13 @@ nextActivity.setOnClickListener(new View.OnClickListener() {
 });
 
 
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+
         if (acct != null) {
             name.setText(acct.getDisplayName());
             email.setText(acct.getEmail());
             id.setText(acct.getId());
             Picasso.get().load(acct.getPhotoUrl()).placeholder(R.mipmap.ic_launcher).into(profile);
             family_name.setText(acct.getFamilyName());
-            FbEmail=acct.getEmail();
-            Fbname=acct.getDisplayName();
-            Fbid=acct.getId();
             Fn=acct.getFamilyName();
 
 

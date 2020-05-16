@@ -5,6 +5,11 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
+    compileOptions{
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     defaultConfig {
         applicationId "com.example.connectme"
         minSdkVersion 16
@@ -26,6 +31,12 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.github.esafirm.android-image-picker:imagepicker:2.2.0'
+    implementation 'com.github.esafirm.android-image-picker:imagepicker:2.2.0'
+    // for experimental rx picker
+    implementation 'com.github.esafirm.android-image-picker:rximagepicker:2.2.0'
+    // If you have a problem with Glide, please use the same Glide version or simply open an issue
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
     implementation 'com.google.android.gms:play-services-auth:18.0.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
