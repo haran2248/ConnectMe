@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#ED5757"
     tools:context=".Notifications">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Notifications for you"
-        android:textColor="#3F51B5"
+        android:textColor="#EDEDF1"
         android:layout_marginLeft="80dp"
         android:textSize="25dp"
         />

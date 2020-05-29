@@ -58,7 +58,7 @@ public class InfoRvAdapter extends RecyclerView.Adapter<InfoRvAdapter.InfoViewHo
             br=itemView.findViewById(R.id.Branch);
             year=itemView.findViewById(R.id.profile_year);
             em=itemView.findViewById(R.id.Email);
-            Id=itemView.findViewById(R.id.Idno);
+
             dp=itemView.findViewById(R.id.display_pic);
             next=itemView.findViewById(R.id.view_profile);
             email=em.toString();
@@ -88,7 +88,6 @@ public class InfoRvAdapter extends RecyclerView.Adapter<InfoRvAdapter.InfoViewHo
                 Glide.with(context).load(info.getImage()).into(dp);
             }
             em.setText(info.getEmail());
-            Id.setText(info.getIDno());
 
         }
 

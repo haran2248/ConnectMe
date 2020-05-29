@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:backgroundTint="#3081C3"
+    android:backgroundTint="#EB5757"
     android:background="@color/colorAccent"
 
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -37,7 +37,7 @@
                 android:layout_toRightOf="@+id/display_pic_in_user_profile"
                 android:fontFamily="@font/galano_grotesque_alt"
                 android:text="Name:"
-                android:textColor="#FFEB3B"
+                android:textColor="#F1F0EB"
                 android:textSize="30dp" />
 
 
@@ -48,9 +48,9 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@+id/display_pic_in_user_profile"
-            android:fontFamily="@font/galano_grotesque_alt"
+            android:fontFamily="@font/gotham_bold"
             android:text="Name"
-            android:textColor="#FFEB3B"
+            android:textColor="#E4E4DF"
             android:textSize="30dp" />
         </LinearLayout>
         <LinearLayout
@@ -68,7 +68,7 @@
             android:layout_toRightOf="@+id/display_pic_in_user_profile"
             android:fontFamily="@font/galano_grotesque_alt"
             android:text="Year:"
-            android:textColor="#FFEB3B"
+            android:textColor="#F3F2E9"
             android:textSize="30dp" />
             <TextView
                 android:id="@+id/profile_year_in_user_profile"
@@ -78,9 +78,9 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_toRightOf="@+id/display_pic_in_user_profile"
-                android:fontFamily="@font/galano_grotesque_alt"
+                android:fontFamily="@font/gotham_bold"
                 android:text="year"
-                android:textColor="#FFEB3B"
+                android:textColor="#EAE9E2"
                 android:textSize="30dp" />
         </LinearLayout>
         <LinearLayout
@@ -96,7 +96,7 @@
             android:layout_toRightOf="@+id/display_pic_in_user_profile"
             android:textSize="30dp"
             android:fontFamily="@font/galano_grotesque_alt"
-            android:textColor="#F3D301"
+            android:textColor="#F4F3E8"
             android:layout_marginTop="10dp"
             android:id="@+id/branch_text_in_user_profile"
             />
@@ -108,8 +108,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_toRightOf="@+id/display_pic_in_user_profile"
                 android:textSize="30dp"
-                android:fontFamily="@font/galano_grotesque_alt"
-                android:textColor="#F3D301"
+                android:fontFamily="@font/gotham_bold"
+                android:textColor="#E8E7DF"
                 android:layout_marginTop="10dp"
                 android:id="@+id/Branch_in_user_profile"
                 />
@@ -127,7 +127,7 @@
             android:layout_toRightOf="@+id/display_pic_in_user_profile"
             android:textSize="30dp"
             android:fontFamily="@font/galano_grotesque_alt"
-            android:textColor="#F3D301"
+            android:textColor="#ECEBE6"
             android:layout_marginTop="10dp"
             android:id="@+id/Interests_in_user_profile"
             />
@@ -140,8 +140,8 @@
                 android:layout_toRightOf="@+id/display_pic_in_user_profile"
                 android:textSize="30dp"
                 android:padding="20dp"
-                android:fontFamily="@font/galano_grotesque_alt"
-                android:textColor="#F3D301"
+                android:fontFamily="@font/gotham_bold"
+                android:textColor="#EAE9E2"
                 android:layout_marginTop="10dp"
                 android:id="@+id/Interests_text_in_user_profile"
                 />
@@ -159,7 +159,7 @@
                 android:layout_toRightOf="@+id/display_pic_in_user_profile"
                 android:textSize="30dp"
                 android:fontFamily="@font/galano_grotesque_alt"
-                android:textColor="#F3D301"
+                android:textColor="#E3E2DD"
                 android:layout_marginTop="10dp"
                 android:id="@+id/gender_text_in_user_profile"
                 />
@@ -172,8 +172,8 @@
                 android:layout_toRightOf="@+id/display_pic_in_user_profile"
                 android:textSize="30dp"
                 android:padding="10dp"
-                android:fontFamily="@font/galano_grotesque_alt"
-                android:textColor="#F3D301"
+                android:fontFamily="@font/gotham_bold"
+                android:textColor="#DAD9D1"
                 android:layout_marginTop="10dp"
                 android:id="@+id/gender_in_user_profile"
                 />
@@ -192,7 +192,7 @@
             android:layout_toRightOf="@+id/display_pic_in_user_profile"
             android:textSize="25dp"
             android:fontFamily="@font/galano_grotesque_alt"
-            android:textColor="#F3D301"
+            android:textColor="#E4E3DA"
             android:layout_marginTop="10dp"
             android:id="@+id/fav_movies_text_in_user_profile"
             />
@@ -205,8 +205,8 @@
                 android:layout_toRightOf="@+id/display_pic_in_user_profile"
                 android:textSize="30dp"
                 android:padding="20dp"
-                android:fontFamily="@font/galano_grotesque_alt"
-                android:textColor="#F3D301"
+                android:fontFamily="@font/gotham_italic"
+                android:textColor="#E8E7E2"
                 android:layout_marginTop="10dp"
                 android:id="@+id/Fav_movies_in_user_profile"
                 />
@@ -226,7 +226,7 @@
             android:layout_toRightOf="@+id/display_pic_in_user_profile"
             android:fontFamily="@font/galano_grotesque_alt"
             android:text="Email:"
-            android:textColor="#F3D301"
+            android:textColor="#EAE9E3"
             android:textSize="30dp" />
             <TextView
                 android:id="@+id/Email_in_final_page"
@@ -236,9 +236,9 @@
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="10dp"
                 android:layout_toRightOf="@+id/display_pic_in_user_profile"
-                android:fontFamily="@font/galano_grotesque_alt"
+                android:fontFamily="@font/gotham_reg"
                 android:text="Email"
-                android:textColor="#F3D301"
+                android:textColor="#D8D7CF"
                 android:textSize="30dp" />
         </LinearLayout>
         <LinearLayout
@@ -254,7 +254,7 @@
             android:layout_toRightOf="@+id/display_pic_in_user_profile"
             android:textSize="30dp"
             android:fontFamily="@font/galano_grotesque_alt"
-            android:textColor="#F3D301"
+            android:textColor="#DCDBD5"
             android:layout_marginTop="10dp"
             android:id="@+id/clubs_in_user_profile"
             />
@@ -268,7 +268,7 @@
                 android:layout_toRightOf="@+id/display_pic_in_user_profile"
                 android:textSize="20dp"
                 android:fontFamily="@font/galano_grotesque_alt"
-                android:textColor="#F3D301"
+                android:textColor="#E3E2DA"
                 android:layout_marginTop="10dp"
                 android:id="@+id/devsoc_club_in_user_profile"
                 />
@@ -281,7 +281,7 @@
                 android:layout_toRightOf="@+id/display_pic_in_user_profile"
                 android:textSize="20dp"
                 android:fontFamily="@font/galano_grotesque_alt"
-                android:textColor="#F3D301"
+                android:textColor="#F3F2EB"
                 android:layout_marginTop="10dp"
                 android:id="@+id/WSC_club_in_user_profile"
                 />
@@ -294,7 +294,7 @@
                 android:layout_toRightOf="@+id/display_pic_in_user_profile"
                 android:textSize="20dp"
                 android:fontFamily="@font/galano_grotesque_alt"
-                android:textColor="#F3D301"
+                android:textColor="#EAE9E7"
                 android:layout_marginTop="10dp"
                 android:id="@+id/BITSK_club_in_user_profile"
                 />
@@ -307,7 +307,7 @@
                 android:layout_toRightOf="@+id/display_pic_in_user_profile"
                 android:textSize="20dp"
                 android:fontFamily="@font/galano_grotesque_alt"
-                android:textColor="#F3D301"
+                android:textColor="#EFEFEC"
                 android:layout_marginTop="10dp"
                 android:id="@+id/Quark_club_in_user_profile"
                 />
@@ -329,7 +329,7 @@
                 android:layout_toRightOf="@+id/display_pic_in_user_profile"
                 android:fontFamily="@font/galano_grotesque_alt"
                 android:text="Whatsapp:"
-                android:textColor="#F3D301"
+                android:textColor="#EAE9E3"
                 android:textSize="30dp" />
             <TextView
                 android:id="@+id/WhatsappNO_in_final_page"
@@ -339,9 +339,9 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_toRightOf="@+id/display_pic_in_user_profile"
-                android:fontFamily="@font/galano_grotesque_alt"
+                android:fontFamily="@font/roboto_regular"
                 android:text="Whatsapp NO"
-                android:textColor="#F3D301"
+                android:textColor="#EAE9E3"
                 android:textSize="30dp" />
         </LinearLayout>
         <LinearLayout
@@ -355,7 +355,7 @@
             android:layout_marginLeft="80dp"
             app:cornerRadius="10dp"
             android:text="Request phone no"
-            android:textColor="#FF0145"
+            android:textColor="#F8F800"
             android:id="@+id/send"
             android:backgroundTint="#CDDC39"
             app:rippleColor="#FFC107"

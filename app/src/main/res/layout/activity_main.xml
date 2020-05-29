@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#F1E3CD"
+    >
 
     <TextView
         android:layout_width="match_parent"
@@ -12,8 +14,9 @@
         android:text="WELCOME TO ConnectMe"
         android:textSize="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-        android:fontFamily="@font/raleway"
+        android:textColor="#EDCB5757"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/gotham_bold"
         />
 
 
