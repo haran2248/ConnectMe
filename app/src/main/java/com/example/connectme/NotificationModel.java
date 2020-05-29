@@ -3,6 +3,10 @@ package com.example.connectme;
 public class NotificationModel {
 
     String name;
+    public NotificationModel()
+    {
+
+    }
 
     public String getName() {
         return name;

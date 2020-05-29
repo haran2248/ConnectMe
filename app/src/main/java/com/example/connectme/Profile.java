@@ -88,13 +88,13 @@ private GoogleSignInOptions gso;
                     Intent intent1=new Intent(Profile.this,BasicInfoRV.class);
                     startActivity(intent1);
                 }
-               /* if(id==R.id.notifications_page)
+               if(id==R.id.notifications_page)
                 {
                     Intent intent=new Intent(Profile.this,Notifications.class);
                     startActivity(intent);
                 }
 
-                */
+
 
 
                 return true;

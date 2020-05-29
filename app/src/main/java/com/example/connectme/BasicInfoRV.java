@@ -80,14 +80,14 @@ public class BasicInfoRV extends AppCompatActivity {
                 {
                     Toast.makeText(BasicInfoRV.this,"You are on the home page",Toast.LENGTH_LONG).show();
                 }
-              /*
+              
                 if(id==R.id.notifications_page)
                 {
                     Intent intent=new Intent(BasicInfoRV.this,Notifications.class);
                     startActivity(intent);
                 }
 
-               */
+
 
                 return true;
 

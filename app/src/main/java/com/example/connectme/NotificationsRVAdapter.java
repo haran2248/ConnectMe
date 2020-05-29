@@ -1,6 +1,7 @@
 package com.example.connectme;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,8 +52,8 @@ public class NotificationsRVAdapter extends RecyclerView.Adapter<NotificationsRV
         }
 
         public void populate(NotificationModel notificationModel) {
-            senderTextView.setText(mAuth.getCurrentUser().getDisplayName());
             receiverTextView.setText(notificationModel.getName());
+            Log.i("Receiver name",notificationModel.getName());
         }
     }
 }
