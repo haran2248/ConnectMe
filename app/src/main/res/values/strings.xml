@@ -9,5 +9,9 @@
         <item>Mechanical</item>
         <item>Chemical</item>
     </string-array>
+    <string name="Open">ConnectMe</string>
+    <string name="Close">ConnectMe</string>
+    <string name="Search" />
+    <string name="search_by_name">Search by name</string>
 
 </resources>

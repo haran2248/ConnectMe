@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:backgroundTint="#3081C3"
+        android:background="@color/colorAccent"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/display_pic"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:civ_border_color="#FFEB3B"
+        app:civ_border_width="2dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="120dp"
+        android:rotation="0"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:layout_toRightOf="@+id/display_pic"
+        android:textSize="30dp"
+        android:fontFamily="@font/galano_grotesque_alt"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="80dp"
+        android:textColor="#FFEB3B"
+        android:id="@+id/profile_name"
+        />
+
+        <TextView
+            android:id="@+id/profile_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profile_name"
+            android:layout_marginLeft="80dp"
+            android:layout_toRightOf="@+id/display_pic"
+            android:fontFamily="@font/galano_grotesque_alt"
+            android:text="year"
+            android:textColor="#FFEB3B"
+            android:textSize="30dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Branch"
+        android:layout_below="@id/profile_year"
+        android:layout_marginLeft="80dp"
+        android:layout_toRightOf="@+id/display_pic"
+        android:textSize="30dp"
+        android:fontFamily="@font/galano_grotesque_alt"
+        android:textColor="#F3D301"
+        android:id="@+id/Branch"
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:layout_below="@id/profile_year"
+            android:layout_marginLeft="80dp"
+            android:layout_toRightOf="@+id/display_pic"
+            android:textSize="30dp"
+            android:fontFamily="@font/galano_grotesque_alt"
+            android:textColor="#F3D301"
+            android:id="@+id/Email"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID"
+            android:layout_below="@id/profile_year"
+            android:layout_marginLeft="80dp"
+            android:layout_toRightOf="@+id/display_pic"
+            android:textSize="30dp"
+            android:fontFamily="@font/galano_grotesque_alt"
+            android:textColor="#F3D301"
+            android:id="@+id/Idno"
+            />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorAccent"
+        android:backgroundTint="#D3C764"
+        android:layout_toRightOf="@id/profile_year"
+        android:text="View profile"
+        app:rippleColor="#FF9800"
+        android:id="@+id/view_profile"
+        android:textSize="20dp" />
+
+    </LinearLayout>
+</ScrollView>

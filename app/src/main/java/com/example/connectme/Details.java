@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,6 +41,8 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
     Image image;
     String imgPath;
     boolean imgflag = false;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     StorageReference storageReference;
 
@@ -52,7 +55,7 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
     Button sub, upload;
     private TextInputEditText interests, fav_movies, whatsapp_no;
     private TextInputLayout inter_layout, fav_movies_layout, whatsapp_no_layout;
-    private DatabaseReference userReference = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference userReference = FirebaseDatabase.getInstance().getReference().child("users");
     private String choice;
 
     @Override
@@ -81,6 +84,9 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
         fav_movies_layout = findViewById(R.id.movies_layout);
         whatsapp_no = findViewById(R.id.whatsapp_no_editext);
         whatsapp_no_layout = findViewById(R.id.whatsapp_no_layout);
+        sharedPreferences=getSharedPreferences("details",MODE_PRIVATE);
+
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.branches, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         branch.setAdapter(adapter);
@@ -101,9 +107,11 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("interests").setValue(interests.getText().toString());
+               userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("interests").setValue(interests.getText().toString());
                 userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("movies").setValue(fav_movies.getText().toString());
                 userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("whatsapp").setValue(whatsapp_no.getText().toString());
+
+
                 if (WSC.isChecked()) {
                     userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("WSC").setValue("1");
                 }
@@ -131,24 +139,27 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
                 {
                     userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("QC").setValue("0");
                 }
+
+
                 if(y1.isChecked())
                 {
-                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("year").setValue("year1");
+                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year1");
                 }
                 if(y2.isChecked())
                 {
-                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("year").setValue("year2");
+                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year2");
                 }
                 if(y3.isChecked())
                 {
-                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("year").setValue("year3");
+                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year3");
+
                 }
                 if(y4.isChecked())
                 {
-                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("year").setValue("year4");
+                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year4");
                 }if(y5.isChecked())
                 {
-                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("year").setValue("year5");
+                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year5");
                 }
                 gend_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
@@ -167,38 +178,47 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
                 });
               if(m.isChecked())
               {
-                  userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("gender").setValue("male");
+                 userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("gender").setValue("male");
               }
               if(f.isChecked())
               {
                   userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("gender").setValue("female");
               }
 
-                userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Branch").setValue(choice);
-                storageReference = FirebaseStorage.getInstance().getReference();
-                final StorageReference imgRef = storageReference.child("images");
-                final Uri file = Uri.fromFile(new File(imgPath));
-                final StorageReference myRef = imgRef.child(image.getName());
+                userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("Branch").setValue(choice);
+             if(!imgflag) {
+                 Toast.makeText(Details.this,"No photo attached",Toast.LENGTH_SHORT).show();
+             }
+             else{
+                  storageReference = FirebaseStorage.getInstance().getReference();
 
-                myRef.putFile(file).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Toast.makeText(Details.this, "Image added", Toast.LENGTH_SHORT).show();
-                        myRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
+                  final StorageReference imgRef = storageReference.child("images");
+                  final Uri file = Uri.fromFile(new File(imgPath));
+                  final StorageReference myRef = imgRef.child(image.getName());
 
-                                userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("image").setValue(uri.toString());
+                  myRef.putFile(file).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                      @Override
+                      public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                          Toast.makeText(Details.this, "Image added", Toast.LENGTH_SHORT).show();
+                          myRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                              @Override
+                              public void onSuccess(Uri uri) {
 
-                            }
-                        });
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(Details.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                                  userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("image").setValue(uri.toString());
+
+                              }
+                          });
+                      }
+                  }).addOnFailureListener(new OnFailureListener() {
+                      @Override
+                      public void onFailure(@NonNull Exception e) {
+                          Toast.makeText(Details.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                      }
+                  });
+              }
+
+                Intent intent=new Intent(Details.this,BasicInfoRV.class);
+                startActivity(intent);
 
             }
 
