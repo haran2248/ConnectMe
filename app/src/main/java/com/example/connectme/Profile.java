@@ -37,6 +37,7 @@ public class Profile extends AppCompatActivity implements GoogleApiClient.OnConn
    FirebaseAuth auth;
    DatabaseReference databaseReference;
    DrawerLayout drawerLayout;
+   int c=0;
    ActionBarDrawerToggle actionBarDrawerToggle;
     GoogleSignInClient mGoogleSignInClient;
 private GoogleApiClient googleApiClient;
@@ -130,8 +131,19 @@ nextActivity.setOnClickListener(new View.OnClickListener() {
         databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("Email").setValue(acct.getEmail());
         databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("IDno").setValue(acct.getId());
         databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("familyName").setValue(acct.getFamilyName());
-        Intent next=new Intent(Profile.this, Details.class);
-        startActivity(next);
+
+
+        if(c==0) {
+            c++;
+            Intent intent = new Intent(Profile.this, Details.class);
+            startActivity(intent);
+
+        }
+        else
+        {
+            Intent i=new Intent(Profile.this,BasicInfoRV.class);
+            startActivity(i);
+        }
 
 
 
@@ -168,8 +180,9 @@ nextActivity.setOnClickListener(new View.OnClickListener() {
 
                     }
                 });
-        Intent intent=new Intent(Profile.this,MainActivity.class);
-        startActivity(intent);
+        Intent next=new Intent(Profile.this, MainActivity.class);
+        startActivity(next);
+
     }
 
 }

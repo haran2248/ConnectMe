@@ -143,12 +143,38 @@ public class UserProfile extends AppCompatActivity {
 
             }
         });
+        decline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                declineRequest();
+            }
+        });
 
 
 
 
 
     }
+
+    private void declineRequest() {
+        dataRef.child(currentUser).child(Idno).removeValue()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        dataRef.child(Idno).child(currentUser).removeValue()
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        current="not friends";
+                                        decline.setVisibility(View.GONE);
+                                        sendRequest.setText("Request Phone no");
+                                    }
+                                });
+                    }
+                });
+    }
+
+
 
     private void AcceptRequest() {
         Calendar curDate=Calendar.getInstance();
@@ -213,6 +239,11 @@ public class UserProfile extends AppCompatActivity {
     }
 
     private void maintainance() {
+        if(currentUser.equals(Idno))
+        {
+            sendRequest.setVisibility(View.GONE);
+            decline.setVisibility(View.GONE);
+        }
         dataRef.child(currentUser).addListenerForSingleValueEvent(new ValueEventListener() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -230,6 +261,7 @@ public class UserProfile extends AppCompatActivity {
                     {
                         current="request_received";
                         sendRequest.setText("Accept Request");
+                        decline.setVisibility(View.VISIBLE);
                         decline.setText("Decline request");
 
 
@@ -348,5 +380,6 @@ public class UserProfile extends AppCompatActivity {
         whatsappNO_xml=findViewById(R.id.WhatsappNO_in_final_page);
         whatsappNO_xml.setVisibility(View.GONE);
         whatsapp_xml.setVisibility(View.GONE);
+        decline.setVisibility(View.GONE);
     }
 }
