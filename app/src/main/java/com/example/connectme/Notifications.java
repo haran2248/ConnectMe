@@ -28,6 +28,7 @@ public class Notifications extends AppCompatActivity {
     ArrayList<NotificationModel> notificationModelArrayList;
     NotificationsRVAdapter adapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +53,7 @@ public class Notifications extends AppCompatActivity {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot1) {
                                     for (DataSnapshot childSnapshot : dataSnapshot1.getChildren()) {
-                                         receiver_key = childSnapshot.getKey();
+                                         receiver_key= childSnapshot.getKey();
                                          Log.i("Receiver key",receiver_key);
                                     }
                                 }
@@ -69,6 +70,7 @@ public class Notifications extends AppCompatActivity {
                             {
                                 if(shot.child("information").child("Info").child("IDno").getValue().equals(receiver_key))
                                 {
+
                                     Log.i("notifications",shot.child("NotificationModel").getValue(NotificationModel.class).getName());
                                    notificationModelArrayList.add(shot.child("NotificationModel").getValue(NotificationModel.class));
 

@@ -31,6 +31,7 @@
         android:paddingRight="10dp"
         android:layout_below="@+id/text"
         android:id="@+id/branch_text"
+        android:fontFamily="@font/gotham_reg"
         android:textSize="20dp"
         android:layout_marginLeft="10dp"
         />
@@ -49,6 +50,7 @@
         android:padding="10dp"
         android:layout_marginTop="40dp"
         android:id="@+id/gender_text"
+        android:fontFamily="@font/gotham_reg"
         android:layout_below="@+id/branch_text"
         android:textSize="20dp"
         />
@@ -82,6 +84,7 @@
         android:padding="10dp"
         android:layout_marginTop="40dp"
         android:id="@+id/interest_text"
+        android:fontFamily="@font/gotham_reg"
         android:layout_below="@+id/gender_text"
         android:textSize="20dp"
         />
@@ -165,10 +168,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fav-Movies"
+        android:text="About yourself"
         android:padding="0dp"
         android:layout_marginTop="40dp"
+        android:layout_marginLeft="0dp"
         android:id="@+id/Fav_movies_text"
+        android:fontFamily="@font/gotham_reg"
         android:layout_below="@+id/devsoc_checkbox"
         android:textSize="20dp"
         />
@@ -184,7 +189,7 @@
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
-        android:layout_toEndOf="@+id/interest_text"
+        android:layout_toEndOf="@+id/Fav_movies_text"
         android:layout_marginLeft="10dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_toRightOf="@+id/Fav_movies_text">
@@ -207,6 +212,7 @@
         android:paddingTop="10dp"
         android:layout_marginTop="100dp"
         android:id="@+id/whatsappno_text"
+        android:fontFamily="@font/gotham_reg"
         android:layout_below="@+id/Fav_movies_text"
         android:textSize="20dp"
         />
@@ -237,6 +243,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
+
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -259,6 +266,7 @@
         android:padding="10dp"
         android:paddingTop="10dp"
         android:text="Year"
+        android:fontFamily="@font/gotham_reg"
         android:textSize="20dp" />
 
     <RadioGroup

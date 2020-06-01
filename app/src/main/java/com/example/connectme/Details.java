@@ -19,6 +19,7 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.esafirm.imagepicker.features.ImagePicker;
@@ -45,6 +46,7 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
     SharedPreferences.Editor editor;
 
     StorageReference storageReference;
+    TextView watsapp;
 
     private CheckBox WSC, devsoc, BitsK, QC;
     private RadioButton y1,y2,y3,y4,y5;
@@ -84,6 +86,7 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
         fav_movies_layout = findViewById(R.id.movies_layout);
         whatsapp_no = findViewById(R.id.whatsapp_no_editext);
         whatsapp_no_layout = findViewById(R.id.whatsapp_no_layout);
+        watsapp=findViewById(R.id.whatsappno_text);
         sharedPreferences=getSharedPreferences("details",MODE_PRIVATE);
 
 
@@ -109,7 +112,8 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
             public void onClick(View v) {
                userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("interests").setValue(interests.getText().toString());
                 userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("movies").setValue(fav_movies.getText().toString());
-                userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("whatsapp").setValue(whatsapp_no.getText().toString());
+
+
 
 
                 if (WSC.isChecked()) {
@@ -141,26 +145,7 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
                 }
 
 
-                if(y1.isChecked())
-                {
-                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year1");
-                }
-                if(y2.isChecked())
-                {
-                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year2");
-                }
-                if(y3.isChecked())
-                {
-                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year3");
 
-                }
-                if(y4.isChecked())
-                {
-                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year4");
-                }if(y5.isChecked())
-                {
-                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year5");
-                }
                 gend_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
@@ -185,9 +170,10 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
                   userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("gender").setValue("female");
               }
 
-                userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("Branch").setValue(choice);
+
              if(!imgflag) {
                  Toast.makeText(Details.this,"No photo attached",Toast.LENGTH_SHORT).show();
+                 userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("image").setValue("");
              }
              else{
                   storageReference = FirebaseStorage.getInstance().getReference();
@@ -216,9 +202,61 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
                       }
                   });
               }
+                if((whatsapp_no.getText().toString().length())==10) {
+                    userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("whatsapp").setValue(whatsapp_no.getText().toString());
+                    Toast.makeText(Details.this, "Number added", Toast.LENGTH_LONG).show();
+                    if(!(choice.equals("")))
+                    {
+                        userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("Branch").setValue(choice);
+                        if(y1.isChecked())
+                        {
+                            userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year1");
+                            Intent intent=new Intent(Details.this,BasicInfoRV.class);
+                            startActivity(intent);
+                        }
+                        else if(y2.isChecked())
+                        {
+                            userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year2");
+                            Intent intent=new Intent(Details.this,BasicInfoRV.class);
+                            startActivity(intent);
+                        }
+                        else if(y3.isChecked())
+                        {
+                            userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year3");
+                            Intent intent=new Intent(Details.this,BasicInfoRV.class);
+                            startActivity(intent);
 
-                Intent intent=new Intent(Details.this,BasicInfoRV.class);
-                startActivity(intent);
+                        }
+                        else if(y4.isChecked())
+                        {
+                            userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year4");
+                            Intent intent=new Intent(Details.this,BasicInfoRV.class);
+                            startActivity(intent);
+
+                        }else if(y5.isChecked())
+                        {
+                            userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year5");
+                            Intent intent=new Intent(Details.this,BasicInfoRV.class);
+                            startActivity(intent);
+
+                        }
+                        else
+                        {
+                            Toast.makeText(Details.this,"Enter Year",Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+                    else {
+                        Toast.makeText(Details.this,"Enter branch",Toast.LENGTH_LONG).show();
+                    }
+
+
+
+                }
+                else
+                {
+                    Toast.makeText(Details.this,"please enter valid no",Toast.LENGTH_SHORT).show();
+                }
 
             }
 

@@ -27,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class UserProfile extends AppCompatActivity {
     String email_in_final_page="",Idno="";
@@ -34,7 +35,7 @@ public class UserProfile extends AppCompatActivity {
    FirebaseAuth mAuth;
    ImageView display_in_final_page;
    DatabaseReference databaseReference;
-   DatabaseReference dataRef,friendRef;
+   DatabaseReference dataRef,friendRef,notificationsRef;
    Button sendRequest,decline;
    String current="";
    String currentUser="",saveDate,currentAuth;
@@ -47,6 +48,7 @@ public class UserProfile extends AppCompatActivity {
         attachID();
         databaseReference=FirebaseDatabase.getInstance().getReference().child("users");
         dataRef=FirebaseDatabase.getInstance().getReference().child("friend_requests");
+        notificationsRef=FirebaseDatabase.getInstance().getReference().child("notifications");
         friendRef=FirebaseDatabase.getInstance().getReference().child("friends");
         email_in_final_page=getIntent().getExtras().getString("unique");
         email_in_xml.setText(email_in_final_page);
@@ -348,8 +350,19 @@ public class UserProfile extends AppCompatActivity {
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        current="request_sent";
-                                        sendRequest.setText("cancel request");
+
+                                        HashMap<String,String> notificationData=new HashMap<>();
+                                        notificationData.put("name",FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+                                        notificationData.put("type","request");
+                                        notificationsRef.child(Idno).push().setValue(notificationData).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                current="request_sent";
+                                                sendRequest.setText("cancel request");
+                                            }
+                                        });
+
+
                                     }
                                 });
 

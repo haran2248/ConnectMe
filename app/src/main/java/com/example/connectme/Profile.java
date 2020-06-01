@@ -128,7 +128,9 @@ nextActivity.setOnClickListener(new View.OnClickListener() {
             databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("name").setValue(acct.getDisplayName());
             databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("NotificationModel").child("name").setValue(acct.getDisplayName());
         }
-        databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("Email").setValue(acct.getEmail());
+        if (acct != null) {
+            databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("Email").setValue(acct.getEmail());
+        }
         databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("IDno").setValue(acct.getId());
         databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("familyName").setValue(acct.getFamilyName());
 
