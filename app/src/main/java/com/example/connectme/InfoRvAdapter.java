@@ -1,8 +1,14 @@
 package com.example.connectme;
 
+
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
+
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +17,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
+import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.spark.submitbutton.SubmitButton;
 
+import java.time.Year;
 import java.util.ArrayList;
 
 public class InfoRvAdapter extends RecyclerView.Adapter<InfoRvAdapter.InfoViewHolder> {
@@ -46,7 +59,7 @@ public class InfoRvAdapter extends RecyclerView.Adapter<InfoRvAdapter.InfoViewHo
     public class InfoViewHolder extends RecyclerView.ViewHolder {
         TextView name,br,year,em,Id;
         ImageView dp;
-        Button next;
+        SubmitButton next;
         String email="";
 
         Info infos;
@@ -63,15 +76,25 @@ public class InfoRvAdapter extends RecyclerView.Adapter<InfoRvAdapter.InfoViewHo
             next=itemView.findViewById(R.id.view_profile);
             email=em.toString();
 
+
             next.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
                 @Override
 
                 public void onClick(View v) {
                     int position=getAdapterPosition();
-                    Intent i=new Intent(itemView.getContext(),UserProfile.class);
-                    i.putExtra("unique", infoArrayList.get(position).getEmail());
-                    i.putExtra("uniqueID",infoArrayList.get(position).getIDno());
-                    itemView.getContext().startActivity(i);
+                    Intent intent=new Intent(itemView.getContext(),UserProfile.class);
+                    intent.putExtra("unique", infoArrayList.get(position).getEmail());
+                    intent.putExtra("uniqueID",infoArrayList.get(position).getIDno());
+                    Pair[] pairs=new Pair[5];
+                    pairs[0]=new Pair<View,String>(dp,"imageTrans");
+                    pairs[1]=new Pair<View,String>(name,"NameTrans");
+                    pairs[2]=new Pair<View,String>(year,"YearTrans");
+                    pairs[3]=new Pair<View,String>(em,"EmailTrans");
+                    pairs[4]=new Pair<View,String>(br,"branchtrans");
+                    ActivityOptions options = ActivityOptions.
+                            makeSceneTransitionAnimation((Activity) itemView.getContext(),name, ViewCompat.getTransitionName(dp));
+                    itemView.getContext().startActivity(intent,options.toBundle());
                 }
             });
 

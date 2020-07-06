@@ -31,9 +31,9 @@
         android:layout_height="wrap_content"
         android:text="Sign in with your BITSmail"
         android:layout_below="@id/gsign"
-        android:fontFamily="@font/raleway"
         android:layout_centerHorizontal="true"
         android:textColor="#FA4B14"
+        android:fontFamily="@font/raleway_semibold"
         android:layout_marginTop="10dp"
         />
 

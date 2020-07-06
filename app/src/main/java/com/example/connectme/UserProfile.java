@@ -31,7 +31,7 @@ import java.util.HashMap;
 
 public class UserProfile extends AppCompatActivity {
     String email_in_final_page="",Idno="";
-   private TextView email_in_xml,name_in_xml,year_in_xml,interests_in_xml,branch_in_xml,gender_in_xml,fav_movies_in_xml,devsoc_in_xml,wsc_xml,qc_xml,Bits_K_xml,whatsapp_xml,whatsappNO_xml;
+   private TextView insta,email_in_xml,clubs_textview,name_in_xml,year_in_xml,interests_in_xml,branch_in_xml,gender_in_xml,fav_movies_in_xml,devsoc_in_xml,wsc_xml,qc_xml,Bits_K_xml,whatsapp_xml,whatsappNO_xml;
    FirebaseAuth mAuth;
    ImageView display_in_final_page;
    DatabaseReference databaseReference;
@@ -68,8 +68,7 @@ public class UserProfile extends AppCompatActivity {
                     {
                         Glide.with(getApplicationContext()).load(shot.child("information").child("Info").getValue(Info.class).getImage()).into(display_in_final_page);
                         interests_in_xml.setText(shot.getValue(User.class).getInterests());
-
-
+                        insta.setText(shot.getValue(User.class).getInsta());
                         Log.i("Interests",shot.getValue(User.class).getInterests());
                         name_in_xml.setText(shot.child("information").child("Info").getValue(Info.class).getName());
                         Log.i("name",shot.child("information").child("Info").getValue(Info.class).getName());
@@ -377,6 +376,7 @@ public class UserProfile extends AppCompatActivity {
         email_in_xml=findViewById(R.id.Email_in_final_page);
         name_in_xml=findViewById(R.id.profile_name_in_user_profile);
         year_in_xml=findViewById(R.id.profile_year_in_user_profile);
+        insta=findViewById(R.id.insta_id_in_final_page);
         interests_in_xml=findViewById(R.id.Interests_text_in_user_profile);
         branch_in_xml=findViewById(R.id.Branch_in_user_profile);
         gender_in_xml=findViewById(R.id.gender_in_user_profile);
@@ -389,6 +389,12 @@ public class UserProfile extends AppCompatActivity {
         Bits_K_xml=findViewById(R.id.BITSK_club_in_user_profile);
         decline=findViewById(R.id.back);
         current="not friends";
+        clubs_textview=findViewById(R.id.clubs_in_user_profile);
+        clubs_textview.setVisibility(View.GONE);
+        devsoc_in_xml.setVisibility(View.GONE);
+        qc_xml.setVisibility(View.GONE);
+        wsc_xml.setVisibility(View.GONE);
+        Bits_K_xml.setVisibility(View.GONE);
         whatsapp_xml=findViewById(R.id.Whatsapp_text_in_user_profile);
         whatsappNO_xml=findViewById(R.id.WhatsappNO_in_final_page);
         whatsappNO_xml.setVisibility(View.GONE);

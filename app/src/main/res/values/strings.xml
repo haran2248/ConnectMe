@@ -8,6 +8,10 @@
         <item>ENI</item>
         <item>Mechanical</item>
         <item>Chemical</item>
+        <item>Msc.Maths</item>
+        <item>Msc.Biology</item>
+        <item>Msc.Chem</item>
+        <item>Msc.Eco</item>
     </string-array>
     <string name="Open">ConnectMe</string>
     <string name="Close">ConnectMe</string>

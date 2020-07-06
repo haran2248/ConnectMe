@@ -17,12 +17,14 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="ENTER RELEVANT AND VALID INFORMATION"
-    android:layout_margin="40dp"
+    android:layout_marginTop="40dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginBottom="40dp"
     android:layout_centerHorizontal="true"
     android:textSize="16dp"
     android:fontFamily="@font/gotham_reg"
     android:id="@+id/text"
-    android:textColor="@color/colorPrimary"
+    android:textColor="#EDCB5757"
     />
     <TextView
         android:layout_width="wrap_content"
@@ -121,10 +123,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CLUBS AND DEPARTMENTS"
+        android:text="PERSONAL INFORMATION"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/colorPrimaryDark"
-        android:padding="10dp"
+        android:textColor="#EDCB5757"
+        android:padding="0dp"
         android:layout_marginTop="70dp"
         android:id="@+id/departments_text"
         android:layout_below="@+id/interest_text"
@@ -243,19 +245,19 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SUBMIT"
-        android:textColor="#FCFDFD"
+    <com.spark.submitbutton.SubmitButton
         android:id="@+id/submit"
-        android:backgroundTint="@color/colorPrimary"
-        android:layout_below="@id/upload"
-        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="15dp"
+        android:layout_height="3dp"
+        android:layout_below="@+id/insta_id_layout"
         android:layout_centerHorizontal="true"
-        app:cornerRadius="15dp"
-        />
+        android:text="Submit"
+        android:textColor="@color/white"
+        app:sub_btn_background="#EDCB5757"
+        app:sub_btn_duration="5"
+        app:sub_btn_line_color="@color/colorAccent"
+        app:sub_btn_ripple_color="#F7ECDB"
+        app:sub_btn_tick_color="@color/white" />
 
     <TextView
         android:id="@+id/year_text"
@@ -311,18 +313,52 @@
 
 
     </RadioGroup>
+
     <com.google.android.material.button.MaterialButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/upload"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="252dp"
+        android:layout_height="56dp"
+        android:layout_below="@id/year"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#EDCB5757"
         android:text="set your display picture"
         android:textColor="#FCFDFD"
-        android:id="@+id/upload"
-        android:backgroundTint="@color/colorPrimary"
-        android:layout_below="@id/year"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_centerHorizontal="true"
-        app:cornerRadius="15dp"
+        app:cornerRadius="15dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/upload"
+        android:layout_marginTop="20dp"
+        android:id="@+id/insta_id"
+        android:textSize="20dp"
+        android:text="Insta_handle"
         />
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/insta_id_layout"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/upload"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        android:layout_toEndOf="@+id/insta_id"
+        android:layout_marginLeft="10dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_toRightOf="@+id/insta_id">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/insta_id_editext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_below="@+id/movies_layout"
+            android:layout_marginLeft="200dp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 </RelativeLayout>

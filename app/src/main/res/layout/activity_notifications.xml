@@ -18,8 +18,26 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/notification_rv"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Accept or decline present request to view the next one"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        android:paddingLeft="20dp"
+        android:id="@+id/accept_notifs"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No notifications for you presently"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:paddingLeft="50dp"
+        android:id="@+id/zeroNotifs"
         />
 
 

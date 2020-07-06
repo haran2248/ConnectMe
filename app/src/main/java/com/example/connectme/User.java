@@ -2,15 +2,35 @@ package com.example.connectme;
 
 public class User {
 
-String BitsK,DEVSOC,Email,IDno,QC,WSC,gender,interests,movies,whatsapp;
+String BitsK;
+    String DEVSOC;
+    String Email;
+    String IDno;
+    String QC;
+    String WSC;
+    String gender;
+    String interests;
+    String movies;
+    String whatsapp;
+
+    public String getInsta() {
+        return insta;
+    }
+
+    public void setInsta(String insta) {
+        this.insta = insta;
+    }
+
+    String insta;
 
     public  User(){
 
     }
 
-    public User(String bitsK, String DEVSOC, String email, String IDno, String QC, String WSC, String gender, String interests, String movies, String whatsapp) {
+    public User(String bitsK, String DEVSOC, String email, String IDno, String QC, String WSC, String gender, String interests, String movies, String whatsapp,String insta) {
         BitsK = bitsK;
         this.DEVSOC = DEVSOC;
+        this.insta=insta;
         Email = email;
         this.IDno = IDno;
         this.QC = QC;

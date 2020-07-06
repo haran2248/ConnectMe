@@ -21,6 +21,7 @@
         app:civ_border_color="#FFEB3B"
         app:civ_border_width="2dp"
         android:layout_marginTop="0dp"
+        android:transitionName="imageTrans"
         android:layout_marginLeft="120dp"
         android:rotation="0"/>
     <TextView
@@ -32,7 +33,7 @@
         android:fontFamily="@font/roboto_regular"
         android:layout_marginTop="5dp"
         android:paddingBottom="10dp"
-
+        android:transitionName="NameTrans"
         android:layout_marginLeft="40dp"
         android:textColor="#121211"
         android:id="@+id/profile_name"
@@ -48,6 +49,7 @@
             android:fontFamily="@font/gotham_reg"
             android:text="year"
             android:paddingBottom="10dp"
+            android:transitionName="YearTrans"
             android:textColor="#0E0E0E"
             android:textSize="25dp" />
     <TextView
@@ -59,6 +61,7 @@
         android:layout_marginLeft="40dp"
         android:layout_toRightOf="@+id/display_pic"
         android:textSize="20dp"
+        android:transitionName="branchtrans"
         android:fontFamily="@font/gotham_reg"
         android:textColor="#191918"
         android:id="@+id/Branch"
@@ -73,24 +76,40 @@
             android:textSize="20dp"
             android:paddingBottom="10dp"
             android:fontFamily="@font/gotham_reg"
+            android:transitionName="EmailTrans"
             android:textColor="#1C1C1C"
             android:id="@+id/Email"
             />
 
 
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorAccent"
-        android:backgroundTint="#F6DD0B"
-        android:layout_toRightOf="@id/profile_year"
-        android:text="View profile"
-        app:rippleColor="#EDA12F"
-        android:id="@+id/view_profile"
-        android:textSize="20dp" />
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="120dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        app:cornerRadius="20dp"-->
+<!--        android:background="@color/colorAccent"-->
+<!--        android:backgroundTint="#F85B5B"-->
+<!--        android:layout_toRightOf="@id/profile_year"-->
+<!--        android:text="View profile"-->
+<!--        app:rippleColor="#EDA12F"-->
+<!--        android:id="@+id/view_profile"-->
+<!--        android:textSize="20dp" />-->
+        <com.spark.submitbutton.SubmitButton
+            android:id="@+id/view_profile"
+            android:layout_width="20dp"
+            android:layout_height="5dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:text="VIEW\n PROFILE"
+            android:textColor="@color/white"
+            app:sub_btn_background="#F85B5B"
+            app:sub_btn_duration="5"
+            android:textSize="12dp"
+            app:sub_btn_line_color="#FAD157"
+            app:sub_btn_ripple_color="#F85B5B"
+            app:sub_btn_tick_color="@color/white" />
 
     </LinearLayout>
 </ScrollView>

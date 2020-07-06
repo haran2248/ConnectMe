@@ -34,6 +34,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.spark.submitbutton.SubmitButton;
 
 import java.io.File;
 
@@ -46,7 +47,7 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
     SharedPreferences.Editor editor;
 
     StorageReference storageReference;
-    TextView watsapp;
+    TextView watsapp,dept;
 
     private CheckBox WSC, devsoc, BitsK, QC;
     private RadioButton y1,y2,y3,y4,y5;
@@ -54,8 +55,9 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
     private RadioGroup gend_group, year_group;
     String gender = "";
     String year = "";
-    Button sub, upload;
-    private TextInputEditText interests, fav_movies, whatsapp_no;
+    Button upload;
+    SubmitButton sub;
+    private TextInputEditText interests, fav_movies, whatsapp_no,insta;
     private TextInputLayout inter_layout, fav_movies_layout, whatsapp_no_layout;
     private DatabaseReference userReference = FirebaseDatabase.getInstance().getReference().child("users");
     private String choice;
@@ -65,6 +67,7 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
         branch = findViewById(R.id.branch_spinner);
+        insta=findViewById(R.id.insta_id_editext);
         y1=findViewById(R.id.year1);
         y2=findViewById(R.id.year2);
         y3=findViewById(R.id.year3);
@@ -73,11 +76,16 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
         sub = findViewById(R.id.submit);
         WSC = findViewById(R.id.WSC_checkbox);
         devsoc = findViewById(R.id.devsoc_checkbox);
+        dept=findViewById(R.id.departments_text);
         upload = findViewById(R.id.upload);
         year_group = findViewById(R.id.year);
         BitsK = findViewById(R.id.BitsK_checkbox);
         gend_group = findViewById(R.id.gender);
         QC = findViewById(R.id.QC_checkbox);
+        WSC.setVisibility(View.GONE);
+        devsoc.setVisibility(View.GONE);
+        BitsK.setVisibility(View.GONE);
+        QC.setVisibility(View.GONE);
         m = findViewById(R.id.male);
         f = findViewById(R.id.female);
         interests = findViewById(R.id.interest_EditText);
@@ -112,9 +120,7 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
             public void onClick(View v) {
                userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("interests").setValue(interests.getText().toString());
                 userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("movies").setValue(fav_movies.getText().toString());
-
-
-
+                userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("insta").setValue(insta.getText().toString());
 
                 if (WSC.isChecked()) {
                     userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("WSC").setValue("1");
@@ -210,32 +216,32 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
                         userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("Branch").setValue(choice);
                         if(y1.isChecked())
                         {
-                            userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year1");
+                            userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("Year1");
                             Intent intent=new Intent(Details.this,BasicInfoRV.class);
                             startActivity(intent);
                         }
                         else if(y2.isChecked())
                         {
-                            userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year2");
+                            userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("Year2");
                             Intent intent=new Intent(Details.this,BasicInfoRV.class);
                             startActivity(intent);
                         }
                         else if(y3.isChecked())
                         {
-                            userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year3");
+                            userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("Year3");
                             Intent intent=new Intent(Details.this,BasicInfoRV.class);
                             startActivity(intent);
 
                         }
                         else if(y4.isChecked())
                         {
-                            userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year4");
+                            userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("Year4");
                             Intent intent=new Intent(Details.this,BasicInfoRV.class);
                             startActivity(intent);
 
                         }else if(y5.isChecked())
                         {
-                            userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("year5");
+                            userReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information").child("Info").child("year").setValue("Year5");
                             Intent intent=new Intent(Details.this,BasicInfoRV.class);
                             startActivity(intent);
 

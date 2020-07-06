@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#8FBCDB"
     android:id="@+id/dl"
     >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:backgroundTint="#8FBCDB"
         tools:context=".BasicInfoRV">
         <SearchView
             android:layout_width="match_parent"

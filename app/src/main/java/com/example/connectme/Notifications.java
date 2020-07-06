@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -27,16 +29,22 @@ public class Notifications extends AppCompatActivity {
     RecyclerView notif_RV;
     ArrayList<NotificationModel> notificationModelArrayList;
     NotificationsRVAdapter adapter;
+    int c;
+    TextView zero,move;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        c=0;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
         GoogleSignInAccount googleSignInAccount= GoogleSignIn.getLastSignedInAccount(this);
         currentID=googleSignInAccount.getId();
         Log.i("currentID",currentID);
-
+        zero=findViewById(R.id.zeroNotifs);
+        move=findViewById(R.id.accept_notifs);
+        zero.setVisibility(View.GONE);
+        move.setVisibility(View.GONE);
         notif_RV=findViewById(R.id.notification_rv);
         userRef=FirebaseDatabase.getInstance().getReference().child("users");
         friends= FirebaseDatabase.getInstance().getReference().child("friend_requests");
@@ -46,6 +54,7 @@ public class Notifications extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.child(currentID).exists())
                 {
+                    c=1;
                     friends.child(currentID)
                             .orderByChild("request_type")
                             .equalTo("received")
@@ -55,6 +64,7 @@ public class Notifications extends AppCompatActivity {
                                     for (DataSnapshot childSnapshot : dataSnapshot1.getChildren()) {
                                          receiver_key= childSnapshot.getKey();
                                          Log.i("Receiver key",receiver_key);
+
                                     }
                                 }
                                 @Override
@@ -73,13 +83,21 @@ public class Notifications extends AppCompatActivity {
 
                                     Log.i("notifications",shot.child("NotificationModel").getValue(NotificationModel.class).getName());
                                    notificationModelArrayList.add(shot.child("NotificationModel").getValue(NotificationModel.class));
-
+                                   c=1;
                                 }
+
                             }
                             adapter=new NotificationsRVAdapter(notificationModelArrayList,getApplicationContext());
                             notif_RV.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
                             Toast.makeText(Notifications.this,"Success",Toast.LENGTH_LONG).show();
+                            if(c==0)
+                            {
+                                zero.setVisibility(View.VISIBLE);
+                            }
+                            else {
+                                move.setVisibility(View.VISIBLE);
+                            }
 
 
 
@@ -93,6 +111,10 @@ public class Notifications extends AppCompatActivity {
 
 
 
+                }
+                else
+                {
+                    c=0;
                 }
 
             }
