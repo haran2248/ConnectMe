@@ -9,9 +9,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:backgroundTint="#F7ECDB"
-        android:background="@color/colorAccent"
+        android:background="@drawable/nameofxml"
         android:orientation="vertical"
         android:layout_margin="10dp"
+
         android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -21,23 +22,24 @@
         app:civ_border_color="#FFEB3B"
         app:civ_border_width="2dp"
         android:layout_marginTop="0dp"
+        android:src="@drawable/no_profile_pic"
         android:transitionName="imageTrans"
         android:layout_marginLeft="120dp"
         android:rotation="0"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:layout_toRightOf="@+id/display_pic"
-        android:textSize="30dp"
-        android:fontFamily="@font/roboto_regular"
-        android:layout_marginTop="5dp"
-        android:paddingBottom="10dp"
-        android:transitionName="NameTrans"
-        android:layout_marginLeft="40dp"
-        android:textColor="#121211"
-        android:id="@+id/profile_name"
-        />
+
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/display_pic"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingBottom="10dp"
+            android:text="Name"
+            android:textColor="#121211"
+            android:textSize="30dp"
+            android:transitionName="NameTrans" />
 
         <TextView
             android:id="@+id/profile_year"
@@ -102,7 +104,7 @@
             android:layout_height="5dp"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="10dp"
-            android:text="VIEW\n PROFILE"
+            android:text="VIEW PROFILE"
             android:textColor="@color/white"
             app:sub_btn_background="#F85B5B"
             app:sub_btn_duration="5"
