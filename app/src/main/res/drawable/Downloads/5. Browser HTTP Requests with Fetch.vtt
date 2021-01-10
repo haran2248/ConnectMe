@@ -1,0 +1,529 @@
+WEBVTT
+
+00:00.240 --> 00:06.710
+We now have our HDTV endpoint which sends back the Jason forecast information as we saw.
+
+00:06.720 --> 00:14.420
+This works well for valid addresses and in the last video we set it up to also work with invalid addresses.
+
+00:14.430 --> 00:18.950
+Now in this video we're going to turn our attention towards our front end once again.
+
+00:19.020 --> 00:27.120
+The goal is to figure out how to make an H TTP request for that forecast data from client side JavaScript
+
+00:27.240 --> 00:34.110
+in the browser that's going to allow us to create a form submit it fetch the data and then on the fly
+
+00:34.130 --> 00:39.310
+read render the page to show that weather information over in Visual Studio code.
+
+00:39.330 --> 00:45.150
+Let's go ahead and start by closing all open files and I'm going to collapse the playground folder and
+
+00:45.150 --> 00:48.750
+I'm also going to collapse the source directory in web server.
+
+00:48.750 --> 00:53.580
+We're going to spend our time in the public folder a little bit and in the templates folder a little
+
+00:53.580 --> 00:54.590
+as well.
+
+00:54.600 --> 00:59.880
+Now the home page of our site this is the only page where we're actually going to fetch the forecast
+
+01:00.150 --> 01:04.830
+the other pages aren't going to have that and you would just go to the weather page to actually get
+
+01:04.830 --> 01:06.300
+weather information.
+
+01:06.300 --> 01:09.770
+Now that is the index dot HB s view.
+
+01:09.780 --> 01:15.960
+And then here you'll remember we linked in the javascript file that is in the J.S. folder called app
+
+01:15.990 --> 01:19.410
+dot J S now out of our four views.
+
+01:19.440 --> 01:21.260
+That's the only one that has it.
+
+01:21.270 --> 01:24.660
+The other three files for all four about and help.
+
+01:24.660 --> 01:27.650
+They don't link it in and that's intentional.
+
+01:27.720 --> 01:33.330
+The code that goes inside of here is going to be related to fetching the forecast and since this is
+
+01:33.330 --> 01:38.970
+the only page that needs to fetch the forecast it's the only page that needs this code.
+
+01:38.970 --> 01:42.570
+Now we're going to move over into our javascript directory.
+
+01:42.570 --> 01:43.850
+We have app dot J.
+
+01:43.860 --> 01:48.210
+S This is client side JavaScript which is going to run in the browser.
+
+01:48.210 --> 01:54.450
+The goal inside of here amongst other things is to be able to fetch the forecast information in this
+
+01:54.450 --> 01:59.940
+video we're not going to worry about actually creating the form or rendering the forecast data to the
+
+01:59.940 --> 02:00.780
+browser.
+
+02:00.780 --> 02:05.330
+We're going to focus on just getting the data inside of our client side JavaScript.
+
+02:05.430 --> 02:11.400
+Once we have it inside of the client side JavaScript the rest is pretty easy now to actually make the
+
+02:11.670 --> 02:14.880
+TTP request from client side JavaScript.
+
+02:14.970 --> 02:20.570
+We'll be using the very popular fetch API that is not part of JavaScript.
+
+02:20.580 --> 02:27.210
+It is a browser based API which means it's something we can use in all modern browsers but it's not
+
+02:27.210 --> 02:33.720
+accessible in node j s so the code we write inside of here isn't going to be something you'll be able
+
+02:33.720 --> 02:36.960
+to use in a back end node script here.
+
+02:36.990 --> 02:42.900
+This script is running in client side JavaScript so using the fetch API is perfectly fine.
+
+02:42.900 --> 02:47.660
+We're gonna explore the fetch API by working with a dummy adjacent endpoint.
+
+02:47.670 --> 02:54.150
+I used in a different class then as your challenge for the video you'll actually fetch this Jason data
+
+02:54.200 --> 02:57.150
+in the client side JavaScript file.
+
+02:57.150 --> 03:04.500
+Now the other API which we're going to start with you can find at puzzle dot Meade dot I O forward slash
+
+03:04.560 --> 03:05.410
+puzzle.
+
+03:05.460 --> 03:07.920
+This is a very simple API.
+
+03:07.920 --> 03:10.450
+It sends back a Jason response.
+
+03:10.500 --> 03:16.260
+We have a single property puzzle and we have a word puzzle in my javascript bootcamp class.
+
+03:16.260 --> 03:19.170
+This was used to create a hangman game.
+
+03:19.170 --> 03:25.560
+If you make the request again you get a different puzzle each time handmade gifts perfectly pressed
+
+03:25.560 --> 03:27.540
+uniform coffee beans.
+
+03:27.570 --> 03:32.360
+So our goal is to figure out how to get this data in the client side JavaScript file.
+
+03:32.460 --> 03:38.430
+Then you'll use what we've learned to get this data in the client side JavaScript file.
+
+03:38.430 --> 03:44.620
+Now Fetch is a function so we're going to call it as such and we pass to it a string.
+
+03:44.640 --> 03:49.660
+This is the you are all we're trying to fetch from now for the puzzle API.
+
+03:49.680 --> 03:54.900
+That would be HDTV colon forward slash forward slash puzzle.
+
+03:54.900 --> 03:58.750
+Dot need dot I O forward slash puzzle.
+
+03:58.770 --> 04:04.700
+This is going to give us back a randomly generated puzzle now calling fetch in our client side java
+
+04:04.700 --> 04:12.060
+script is going to kick off an asynchronous I O operation much like calling a request in node j s did
+
+04:12.450 --> 04:15.640
+that means we don't have access to the data right away.
+
+04:15.690 --> 04:21.450
+Instead we provide a function and that function will run at some point in the future when the data is
+
+04:21.450 --> 04:22.390
+available.
+
+04:22.470 --> 04:28.950
+Now with the request function in node we passed a callback as the second argument to the function with
+
+04:28.950 --> 04:30.200
+the fetch API.
+
+04:30.210 --> 04:32.160
+It's actually slightly different.
+
+04:32.160 --> 04:40.340
+Instead we use the then method on the return value from fetch and we provide to it the callback function.
+
+04:40.350 --> 04:45.840
+We want to run and we get access to the response as the first and only argument up above.
+
+04:45.900 --> 04:52.590
+Then inside of here we can use the response to do whatever we want to do like extract the data and render
+
+04:52.590 --> 04:55.200
+it to the browser or just dump it to the console.
+
+04:55.290 --> 05:02.230
+So right here we're saying fetch data from this U.R.L. and then run this function.
+
+05:02.230 --> 05:02.740
+Now the.
+
+05:02.770 --> 05:09.530
+Then method is part of a much bigger API we'll be exploring later in the class known as promises.
+
+05:09.670 --> 05:16.420
+We're going to explore promises and its companion async await in detail in just a couple of sections.
+
+05:16.510 --> 05:22.300
+When we learn how to connect no JSA to a database for the moment we're not going to worry about diving
+
+05:22.300 --> 05:25.540
+into the details of promises or async await.
+
+05:25.570 --> 05:30.100
+But don't worry you'll use both extensively in the second half of the class.
+
+05:30.520 --> 05:36.640
+So right here we have access to the response and the goal is to just get the data to get that string
+
+05:36.640 --> 05:41.560
+puzzle and do something simple with it like render it to the browser or dump it to the console.
+
+05:41.740 --> 05:48.580
+We have access to that on response it is response dot Jason which we're going to call as a function
+
+05:48.670 --> 05:51.940
+since it is one we don't pass any arguments to it.
+
+05:52.090 --> 05:55.180
+And this is also designed to work with them.
+
+05:55.540 --> 06:00.790
+So I'm going to add on a call to then and I'm going to pass in a callback function.
+
+06:00.820 --> 06:06.040
+This function is going to run when the Jason data has arrived and been passed.
+
+06:06.040 --> 06:09.220
+Right here we have access to the past data.
+
+06:09.310 --> 06:14.120
+So a javascript object as the first and only argument passed in.
+
+06:14.260 --> 06:18.470
+I'm gonna call that data and down below we can actually use it.
+
+06:18.490 --> 06:24.080
+So that would be console dot log data to dump that console to the terminal.
+
+06:24.190 --> 06:30.400
+Later on we'll be using different methods for the browser to actually render data like the location
+
+06:30.430 --> 06:33.840
+and the forecast to the user interface that the user seats.
+
+06:33.850 --> 06:36.780
+What I'm going to do is go ahead and save apt J.
+
+06:36.790 --> 06:42.340
+S and then inside of the browser I'm gonna crack open the Chrome developer tools which we have used
+
+06:42.340 --> 06:43.960
+before in the menu.
+
+06:43.960 --> 06:49.370
+It is more tools developer tools and once again we're looking for the console tab.
+
+06:49.420 --> 06:55.960
+And here we have our one message we print online one of the file client side JavaScript file is loaded.
+
+06:55.960 --> 07:01.480
+We're not seeing our second message since we haven't refreshed the page but if I do we are gonna see
+
+07:01.480 --> 07:02.350
+down below.
+
+07:02.380 --> 07:05.650
+When the page loads we now have two things showing up.
+
+07:05.650 --> 07:13.000
+I have one my message from before and to an object with a puzzle property and this puzzle is bags of
+
+07:13.000 --> 07:14.330
+fertilizer.
+
+07:14.350 --> 07:20.860
+Now this is the exact same structure we saw when we cracked open the end point in the browser and viewed
+
+07:20.890 --> 07:22.330
+the Jason over here.
+
+07:22.690 --> 07:29.680
+So using those few lines of code in Visual Studio code we were able to fetch Jason data from a U.R.L.
+
+07:29.800 --> 07:33.800
+pass it into a javascript object and then do something with it.
+
+07:33.820 --> 07:36.210
+In this case just dumping it to the console.
+
+07:36.250 --> 07:41.620
+Now it's challenge time and it's going to be up to you to use fetch once again instead of fetching a
+
+07:41.620 --> 07:47.870
+puzzle you're gonna use fetch to fetch forecast information from the you are all that we've set up.
+
+07:47.950 --> 07:49.180
+Now once again for the moment.
+
+07:49.180 --> 07:54.150
+Don't worry about creating a form or actually rendering the forecast to the browser.
+
+07:54.190 --> 07:57.160
+That's something we'll start on in the very next video.
+
+07:57.160 --> 08:01.990
+For now the goal is the following just to fetch the weather.
+
+08:01.990 --> 08:08.080
+So step one in this file down below the comments you're going to set up a call to fetch to fetch the
+
+08:08.080 --> 08:14.470
+weather data for Boston so you can get the correct you are all set up and passed into fetch.
+
+08:14.680 --> 08:20.080
+Then once you have the results you are going to pass the Jason like we did up above and this is where
+
+08:20.080 --> 08:22.230
+you're going to do one of two things.
+
+08:22.330 --> 08:27.680
+If the Jason response has that error property you're going to print the error to the console.
+
+08:27.700 --> 08:33.280
+If there is no error then you're going to print the location and the forecast to the console.
+
+08:33.280 --> 08:36.010
+And finally you're going to go ahead and test your work.
+
+08:36.010 --> 08:39.910
+Down below you'll refresh the browser to do that.
+
+08:39.910 --> 08:41.670
+Try once with Boston.
+
+08:41.800 --> 08:48.880
+Make sure you see the location and the forecast then go ahead and try again with something like an exclamation
+
+08:48.880 --> 08:52.630
+mark and make sure you see the error showing up.
+
+08:52.630 --> 08:57.970
+Take some time to knock that out test your work and when you're done come back and click play
+
+09:02.010 --> 09:02.760
+how'd that go.
+
+09:02.760 --> 09:06.390
+Let's go ahead and kick things off by setting up our call to fetch.
+
+09:06.420 --> 09:09.990
+So right here I am going to call fetch passing in a string.
+
+09:09.990 --> 09:14.390
+You are L and I can grab that from the browser where I already have it.
+
+09:14.490 --> 09:17.290
+In this case I'm getting the weather for Philadelphia.
+
+09:17.310 --> 09:22.680
+The challenge was to get it for Boston though quite honestly any location would work just fine.
+
+09:22.860 --> 09:27.420
+So I can take this U.R.L. and I can bring this over to visual studio code.
+
+09:27.510 --> 09:32.970
+I'm gonna paste it right inside of here and now we have our you are all set up and from here we're going
+
+09:32.970 --> 09:36.690
+to use then to set up our callback function once again.
+
+09:36.690 --> 09:42.150
+So dot then we provide the function to run when Fetch is all done.
+
+09:42.210 --> 09:45.810
+And in this case we know we get access to the response.
+
+09:45.810 --> 09:50.040
+Next up we're gonna go ahead and use the Jason method on a response.
+
+09:50.040 --> 09:52.050
+So that's response Dot.
+
+09:52.050 --> 09:53.160
+Jason.
+
+09:53.160 --> 09:54.930
+We also use then with this.
+
+09:54.930 --> 09:55.920
+And what do we get back.
+
+09:55.920 --> 10:01.950
+We know we get back that past data so I'll set up a another callback function for when that operation
+
+10:01.950 --> 10:05.160
+is done and I'll get access to the data right here.
+
+10:05.160 --> 10:09.050
+But you could have called this particular parameter anything you liked.
+
+10:09.060 --> 10:14.950
+Next up we want to use a little conditional logic to check if things went right or if things went wrong.
+
+10:15.120 --> 10:16.020
+Right here.
+
+10:16.020 --> 10:18.910
+What I'm gonna do is check if there is an error.
+
+10:18.930 --> 10:25.030
+So if data dot error then we're going to do one thing print the error message.
+
+10:25.140 --> 10:31.000
+Otherwise in the else clause we'll do the other thing print the location and the forecast.
+
+10:31.030 --> 10:39.090
+So right here let's knock that out console log data dot error then down below we'll have two logs for
+
+10:39.090 --> 10:45.660
+those two values in the next video we'll transition these logs from logging to the console to rendering
+
+10:45.660 --> 10:47.600
+to paragraphs in the browser.
+
+10:47.610 --> 10:54.570
+So right here I'll use log to go ahead and dump data dot location then I'll dump the forecast just down
+
+10:54.570 --> 10:58.130
+below Excellent.
+
+10:58.140 --> 11:03.720
+Now that we have this in place the last thing to do is to test our work with a working example and a
+
+11:03.780 --> 11:05.450
+not a working example.
+
+11:05.460 --> 11:07.470
+We already have Boston inside of there.
+
+11:07.530 --> 11:11.700
+So let's go ahead and test that on the home page of our weather Web site.
+
+11:11.700 --> 11:17.880
+I'll refresh the page and I do indeed get my forecast information showing up which is fantastic.
+
+11:17.940 --> 11:22.000
+Now that we have it it's gonna be really easy to render it to the browser.
+
+11:22.020 --> 11:26.370
+Next up let's make sure that when things go wrong our code knows how to respond.
+
+11:26.520 --> 11:29.700
+So I'll swap the address out for an exclamation mark.
+
+11:29.760 --> 11:35.850
+I'll refresh the browser once again and this time around I can see unable to find location.
+
+11:35.850 --> 11:37.600
+Try another search Prince.
+
+11:37.650 --> 11:42.540
+And this is something we're also going to show to the browser if it actually occurs.
+
+11:42.540 --> 11:47.970
+We want to provide our users with the most useful information possible so they know what exactly is
+
+11:47.970 --> 11:49.500
+going on and why.
+
+11:50.010 --> 11:50.570
+All right.
+
+11:50.580 --> 11:52.170
+That is it for this video.
+
+11:52.170 --> 11:58.410
+In this video we explored the fetch API which is really the only time we're going to use it sends it
+
+11:58.470 --> 12:04.730
+is client side JavaScript and the bulk of this course is server side JavaScript with node.
+
+12:04.800 --> 12:10.840
+Now fetch allows us to fetch data from a U.R.L. and do something with it while we used that.
+
+12:10.860 --> 12:14.980
+We also touched on the idea of something called Promises.
+
+12:15.030 --> 12:18.090
+We don't need to know anything about them for the moment.
+
+12:18.090 --> 12:22.950
+Remember they are covered in detail shortly in the class up above.
+
+12:22.950 --> 12:28.290
+I'm going to go ahead and remove the challenge comments and I'm also going to remove the other fetch
+
+12:28.290 --> 12:30.240
+call which fetched the puzzle.
+
+12:30.240 --> 12:33.750
+We just use that to explore how the API works.
+
+12:33.750 --> 12:39.600
+Now that we have the forecast information in client side JavaScript in the next video we're actually
+
+12:39.600 --> 12:40.920
+going to create a form.
+
+12:41.160 --> 12:46.500
+And we're going to get this information rendered in the browser as opposed to having it dumped in the
+
+12:46.500 --> 12:48.210
+developer tools console.
+
+12:48.210 --> 12:49.570
+I'm excited to get to that.
+
+12:49.590 --> 12:52.290
+So let's go ahead and jump right in to the next one.

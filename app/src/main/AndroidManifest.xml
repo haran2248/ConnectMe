@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.connectme">
+    package="com.hariharan.connectme">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <uses-permission android:name="android.permission.SEND_RESPOND_VIA_MESSAGE"
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission
+        android:name="android.permission.SEND_RESPOND_VIA_MESSAGE"
         tools:ignore="ProtectedPermissions" />
 
     <application
@@ -15,12 +16,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Notifications" />
-        <activity android:name=".UserProfile" />
-        <activity android:name=".BasicInfoRV" />
-        <activity android:name=".Details" />
-        <activity android:name=".Profile" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.hariharan.connectme.MemoryActivity"></activity>
+        <activity android:name="com.hariharan.connectme.Memories" />
+        <activity android:name="com.hariharan.connectme.NavigationHeader" />
+        <activity android:name="com.hariharan.connectme.Notifications" />
+        <activity android:name="com.hariharan.connectme.UserProfile" />
+        <activity android:name="com.hariharan.connectme.BasicInfoRV" />
+        <activity android:name="com.hariharan.connectme.Details" />
+        <activity android:name="com.hariharan.connectme.Profile" />
+        <activity android:name="com.hariharan.connectme.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

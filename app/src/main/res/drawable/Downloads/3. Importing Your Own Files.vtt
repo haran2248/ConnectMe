@@ -1,0 +1,685 @@
+WEBVTT
+
+00:00.240 --> 00:05.360
+In the last video you learned how to use the require function to load in a node module.
+
+00:05.370 --> 00:11.250
+In this video you're going to learn how to use their require a function to load in another file you've
+
+00:11.250 --> 00:12.240
+created.
+
+00:12.240 --> 00:16.510
+So right now the only file that's ever going to execute is apt.
+
+00:16.570 --> 00:20.180
+J S because that's what we pass to the node command.
+
+00:20.190 --> 00:24.360
+That means we're gonna have to put everything in this file if we want it to run.
+
+00:24.360 --> 00:29.190
+And that's not ideal as our applications get larger and more complex.
+
+00:29.220 --> 00:34.320
+We're gonna have way more code than we would want to have in a single file when all of our code sits
+
+00:34.320 --> 00:39.770
+in one file and makes the project really hard to expand on and maintain.
+
+00:39.780 --> 00:46.180
+So from the start we're gonna go ahead and create projects that use multiple files so we can stay organized.
+
+00:46.260 --> 00:52.260
+We can do something like define a function in one file then require it into a different file and use
+
+00:52.260 --> 00:52.680
+it.
+
+00:52.680 --> 00:57.170
+And that's exactly what we're going to end up doing in this lesson to kick things off.
+
+00:57.180 --> 01:02.970
+We're gonna completely empty app dot J S I'm going to delete everything we have inside of here and we're
+
+01:02.970 --> 01:09.240
+gonna start with a very simple bare bones example to illustrate how all of this works and then we'll
+
+01:09.240 --> 01:14.420
+create something more complex using the best module once again for the moment.
+
+01:14.520 --> 01:21.300
+Let's go ahead and define our name as a variable so constant name equals then as a string your first
+
+01:21.300 --> 01:22.160
+name.
+
+01:22.170 --> 01:24.080
+Next up we're gonna go ahead and print it.
+
+01:24.090 --> 01:26.030
+Nothing groundbreaking here.
+
+01:26.030 --> 01:32.100
+Console dot log providing the one and only argument a reference to the name variable.
+
+01:32.100 --> 01:36.660
+Now if we run this program we know exactly what's going to happen down below.
+
+01:36.660 --> 01:39.190
+I'll rerun the script and what do I get.
+
+01:39.240 --> 01:43.380
+As expected I get my message Andrew printing to the console.
+
+01:43.380 --> 01:50.700
+Now let's add a second file into the mix and try to define this variable in that second file over inside
+
+01:50.700 --> 01:52.490
+of the notes app directory.
+
+01:52.560 --> 01:58.230
+We have to add a new file into our project and it's important that you make sure you actually put it
+
+01:58.230 --> 02:03.640
+in Notes app and it doesn't end up in the root which is the node course directory.
+
+02:04.020 --> 02:07.590
+So right here I'll right click on the notes app folder.
+
+02:07.590 --> 02:14.010
+I'll add a new file and we'll call this something generic like you tills dot J S and let's just say
+
+02:14.010 --> 02:20.090
+this is a file which contains a few useful utilities for the rest of the application.
+
+02:20.100 --> 02:26.850
+Now all we're gonna do inside of here for the moment is use console dialog to print a little message
+
+02:26.880 --> 02:35.380
+and we're going to print the file name utilize dot J S so we can figure out exactly when this file runs.
+
+02:35.400 --> 02:41.820
+Now if we were to go ahead and run Epcot and J S we would not see that log statement down below we can
+
+02:41.820 --> 02:43.770
+prove that I'll rerun the script.
+
+02:43.770 --> 02:45.880
+I only get my Andrew message.
+
+02:45.960 --> 02:48.270
+I do not get the message over here.
+
+02:48.270 --> 02:56.520
+So when we pass a file to node only that file executes if we want another file to run we have to require
+
+02:56.520 --> 02:59.370
+it for that file to actually get loaded in.
+
+02:59.370 --> 03:02.870
+We can do just that up above.
+
+03:03.020 --> 03:08.210
+I'm going to add a line at the very top of the file and here we're gonna use require.
+
+03:08.210 --> 03:13.760
+I'm gonna call the require function exactly like we did in the last video when we were loading in the
+
+03:13.760 --> 03:19.150
+F S module and we're still going to pass in a single argument a string.
+
+03:19.190 --> 03:25.490
+Now when we're loading in a file that we created in our application we start with DOT forward slash
+
+03:25.520 --> 03:30.220
+we have to provide a relative path from the file where loading it in from.
+
+03:30.230 --> 03:37.700
+In this case app dot J S to the file we're actually trying to load in this case utilize dot J S so from
+
+03:37.700 --> 03:43.310
+app J S it is dot forward slash which gets us to the folder for this file.
+
+03:43.310 --> 03:45.940
+That would be notes hyphen app.
+
+03:46.010 --> 03:53.330
+From there we can just go right to the utilize dot J S file which is located in the same directory.
+
+03:53.360 --> 04:00.000
+Now when you're loading in a javascript file like this it is indeed going to execute that file.
+
+04:00.080 --> 04:06.130
+I'm going to save app dot J S and we're going to rerun the program down below.
+
+04:06.470 --> 04:13.850
+I'll rerun our app script and what do I get I get you tills dot J S printing first because require happens
+
+04:13.850 --> 04:17.830
+up here and that's when you tills runs then down below.
+
+04:17.840 --> 04:23.240
+I get Andrew because that's a bit further down the file but the good news is that I am indeed getting
+
+04:23.240 --> 04:29.790
+both messages one from app J S and one from you tells dot J S so there we go.
+
+04:29.810 --> 04:37.030
+We now have an application albeit a simple one that takes advantage of multiple files from here.
+
+04:37.040 --> 04:43.940
+Let's go ahead and start to define some variables in that other file that we use an app dot J S so as
+
+04:43.940 --> 04:49.580
+we create complex applications we'll have all sorts of functions will define in other files and will
+
+04:49.580 --> 04:56.480
+want to use them in our applications main file which in this case is app dot J S so let's see what that
+
+04:56.480 --> 04:57.290
+looks like.
+
+04:57.500 --> 05:04.700
+To do this all I'm gonna do is remove the name variable from app dot J S so right now that program would
+
+05:04.700 --> 05:11.660
+fail because we're trying to reference this variable that doesn't exist over and utilize dot J S we're
+
+05:11.660 --> 05:12.800
+gonna recreate it.
+
+05:12.800 --> 05:18.440
+So right here a new const name equals we're gonna pick a value for this.
+
+05:18.530 --> 05:24.320
+I'll switch things up just to see the different output down below and I'll stick with Mike as my string
+
+05:24.350 --> 05:25.440
+for name.
+
+05:25.520 --> 05:28.940
+Now we're gonna save both files and see what happens.
+
+05:28.970 --> 05:32.750
+So we load in utilize dot J S which defines that variable.
+
+05:32.750 --> 05:37.180
+Then we reference the variable down below down below in the terminal.
+
+05:37.220 --> 05:43.070
+I'll use clear to clear the terminal output and I'll use the up arrow key twice to cycle past the clear
+
+05:43.070 --> 05:45.350
+command to the node app dot J.
+
+05:45.350 --> 05:50.130
+S command we're gonna run it and it's gonna fail when I do.
+
+05:50.180 --> 05:51.130
+What do we get.
+
+05:51.140 --> 05:53.480
+Name is not defined.
+
+05:53.480 --> 05:58.550
+So this is one very important aspect of the node module system.
+
+05:58.550 --> 06:04.010
+All of your files which you can refer to as modules have their own scope.
+
+06:04.190 --> 06:04.840
+So apt.
+
+06:04.880 --> 06:13.610
+J.S. has it's own scope with its own variables and utilize dot J as has its own scope with its own variables
+
+06:13.850 --> 06:14.360
+app.
+
+06:14.360 --> 06:21.990
+J.S. can not access the variables from utilize dot J S even though it was loaded in the require.
+
+06:22.400 --> 06:27.260
+So if I can't access name right now how exactly do I get that done.
+
+06:27.260 --> 06:31.500
+The answer is that we need to explicitly export all of this stuff.
+
+06:31.520 --> 06:35.110
+This file should share with the outside world to do this.
+
+06:35.120 --> 06:44.060
+We take advantage of another aspect of the module system which down below is module Don exports.
+
+06:44.150 --> 06:46.640
+This is where we can define all of the things.
+
+06:46.640 --> 06:53.000
+This file should share with other files now in our case it's going to be one thing a string later on
+
+06:53.000 --> 06:57.980
+though it's going to be an object with a bunch of different methods on it allowing us to export a whole
+
+06:57.980 --> 06:59.250
+bunch of things.
+
+06:59.420 --> 07:03.450
+Whatever we assign right here is what gets exported.
+
+07:03.590 --> 07:09.770
+So we're going to do is export whatever the value is for name which we know is the string Mike.
+
+07:09.770 --> 07:16.160
+So at this point you tells dot J.S. is doing its job well it defined a variable and it exported that
+
+07:16.160 --> 07:17.060
+variable.
+
+07:17.060 --> 07:23.150
+Other files can now take advantage of it whatever you assign it to module dot exports.
+
+07:23.150 --> 07:28.100
+That is available as the return value from when you require the file.
+
+07:28.190 --> 07:35.200
+So I require you tills dot J.S. Right here which means the return value is what I assigned the string.
+
+07:35.360 --> 07:38.780
+Mike which is stored on this name variable.
+
+07:38.780 --> 07:45.260
+So over here in A.J. s I'm going to create a constant I'm going to pick a name for our new variable
+
+07:45.500 --> 07:47.780
+names seems appropriate enough.
+
+07:47.780 --> 07:51.650
+And now our program is back to a working state.
+
+07:51.680 --> 07:53.430
+Let's go ahead and save act J.
+
+07:53.450 --> 07:57.590
+S and test that out with all of our files saved down below.
+
+07:57.650 --> 08:03.200
+I'm gonna use clear to clear the terminal output and I'm gonna use the up arrow key twice to rerun the
+
+08:03.200 --> 08:03.710
+script.
+
+08:03.740 --> 08:04.630
+And what do I get.
+
+08:04.670 --> 08:11.180
+I get my utility dot J.S. message which was expected but I'm also getting Mike which is fantastic.
+
+08:11.180 --> 08:15.470
+It's getting printed in this file but it's getting defined over here.
+
+08:15.500 --> 08:22.900
+We were able to use module dot exports to export it and we were able to load it in over here with required.
+
+08:23.180 --> 08:30.000
+Now once again just because I picked the name name over here doesn't mean I have to use that over here.
+
+08:30.080 --> 08:31.870
+They are completely independent.
+
+08:31.880 --> 08:37.700
+I could call this something like first name a completely different variable name and that would work
+
+08:37.790 --> 08:44.640
+just fine as long as I change the references down below to right here I'll change those references.
+
+08:44.780 --> 08:46.110
+I'll rerun the program.
+
+08:46.130 --> 08:47.070
+And what do I get.
+
+08:47.150 --> 08:48.410
+I get these same results.
+
+08:48.410 --> 08:50.640
+The app is still working.
+
+08:50.720 --> 08:56.300
+So whatever we assign to module exports is what other files can get access to.
+
+08:56.300 --> 09:02.270
+Now let's go ahead and look at a slightly more real world example where we export a function of the
+
+09:02.270 --> 09:08.060
+function that we're going to create we'll be defined in utilize dot J S it'll be exported from that
+
+09:08.060 --> 09:08.620
+file.
+
+09:08.660 --> 09:13.220
+It'll be loaded into this one and called down below in you tells dot J.
+
+09:13.250 --> 09:19.110
+Yes let's go ahead and define it right here below our name variable which we can leave in place.
+
+09:19.160 --> 09:24.380
+We're going to create a new function and I'm going to call this one something like add we're just going
+
+09:24.380 --> 09:28.970
+to make a simple function that adds up to numbers right here.
+
+09:28.970 --> 09:33.320
+We will indeed define a function I'm gonna set up two arguments.
+
+09:33.320 --> 09:40.550
+We can call them X and Y or a and b any two names would work and all we're going to do is return the
+
+09:40.550 --> 09:43.110
+sum a plus b.
+
+09:43.220 --> 09:45.080
+So a very simple function.
+
+09:45.110 --> 09:48.170
+The point isn't to make interesting functions just yet.
+
+09:48.200 --> 09:51.850
+The point is to figure out how to share functions across files.
+
+09:51.920 --> 09:54.140
+Now down below we can export it.
+
+09:54.140 --> 09:57.880
+So currently we're exporting name we're no longer going to do that.
+
+09:57.890 --> 10:03.010
+Instead we're going to set module dot exports equal to right here.
+
+10:03.020 --> 10:04.820
+The add function.
+
+10:04.820 --> 10:06.240
+Now what do we know.
+
+10:06.320 --> 10:14.030
+We know that what comes back from require is now this function which means that over here the name first
+
+10:14.030 --> 10:17.960
+name doesn't make much sense anymore and neither does how we're using it.
+
+10:17.960 --> 10:20.240
+We need to call it since it's a function.
+
+10:20.240 --> 10:25.790
+So right here I'm going to call that ad which is indeed appropriate though remember it could be called
+
+10:25.910 --> 10:32.340
+anything as long as we're consistent in this file down below we can now go ahead and use it.
+
+10:32.390 --> 10:41.180
+I'm going to create a variable sum I'm going to get its value by calling add I'll pass in four and minus
+
+10:41.240 --> 10:41.880
+two.
+
+10:41.930 --> 10:45.800
+The sum should be two and I'll print the sum to the screen.
+
+10:45.830 --> 10:47.940
+So right here some.
+
+10:48.110 --> 10:49.160
+Perfect.
+
+10:49.160 --> 10:53.080
+Let's go ahead and save all files and see if this works down below.
+
+10:53.210 --> 10:59.510
+I'm going to rerun the script and what do I get I get my you tills not J.S. method followed by the number
+
+10:59.510 --> 11:00.220
+two.
+
+11:00.230 --> 11:03.650
+So in this case we exported a function from one file.
+
+11:03.890 --> 11:10.010
+We then loaded it in with require in a separate file and we were able to use it which is a fantastic
+
+11:10.040 --> 11:12.250
+step in the right direction.
+
+11:12.260 --> 11:17.570
+Now it's challenge time and it's going to be up to you to create a new function in a new file and to
+
+11:17.570 --> 11:22.750
+use it in aspect J S for the moment we can go ahead and completely empty this file.
+
+11:22.760 --> 11:28.790
+Or you could choose to leave it around as a reference for the future challenge if you want to do that
+
+11:28.970 --> 11:34.280
+you can just comment out each of the lines there's a handy keyboard shortcut it is a command forward
+
+11:34.280 --> 11:40.790
+slash on Mac and control forward slash on other operating systems I could highlight all of the lines
+
+11:40.790 --> 11:46.940
+here use that keyboard shortcut to comment them all out then I could just move them down below leaving
+
+11:46.940 --> 11:52.280
+them in place as a reference to remember how things work now I'm going to paste in the challenge comments
+
+11:52.310 --> 11:54.370
+and we'll talk about what I'd like you to do.
+
+11:54.500 --> 11:59.990
+So big picture goal you want to define and use a function in a new file.
+
+11:59.990 --> 12:06.500
+So step one you're going to create a new file called Notes dot J X and this is a real file we're actually
+
+12:06.500 --> 12:13.190
+going to use as part of the notes application from there you're going to create a get notes function
+
+12:13.370 --> 12:18.520
+which is also going to be a real function we'll be building out throughout this course.
+
+12:18.680 --> 12:23.300
+Now for the moment it's not going to do anything fancy it doesn't need any arguments and it's not going
+
+12:23.300 --> 12:30.230
+to run any calculations all it's going to do is return a static string like your notes dot dot dot the
+
+12:30.230 --> 12:36.920
+notes will eventually come later step 3 you want to export the new function from the new file step for
+
+12:37.160 --> 12:44.210
+from app dot J S you want to make sure you can load in that new function call it and print the message
+
+12:44.270 --> 12:45.140
+to the console.
+
+12:45.290 --> 12:51.470
+So in the end of the day act J S should be requiring the new notes file it should be calling that function
+
+12:51.470 --> 12:57.170
+to get the message and it should be using console dot log to print that message to the console when
+
+12:57.170 --> 13:01.640
+you're done you should run the program and the message should print down below.
+
+13:01.640 --> 13:07.460
+Once again as these challenges get more complex it's okay if something's not quite clear or you're not
+
+13:07.460 --> 13:13.520
+quite sure how to do something you can always go back to the video in the beginning and figure out exactly
+
+13:13.520 --> 13:14.090
+what happened.
+
+13:14.120 --> 13:15.340
+That's not cheating.
+
+13:15.380 --> 13:19.940
+That's called being resourceful actually memorizing things will come with time.
+
+13:20.540 --> 13:25.790
+All right let's kick things off take a moment to pause the video when you're done come back and click
+
+13:26.090 --> 13:26.420
+play
+
+13:30.450 --> 13:31.140
+how'd that go.
+
+13:31.140 --> 13:33.540
+Hopefully that wasn't too much trouble.
+
+13:33.540 --> 13:35.670
+We're going to go ahead and kick things off right now.
+
+13:35.670 --> 13:37.190
+By creating that new file.
+
+13:37.190 --> 13:45.440
+Step one create a new file called Notes dot J S I'm gonna put that right in the notes app folder notes
+
+13:45.440 --> 13:45.980
+dot J.
+
+13:45.980 --> 13:51.800
+S and we need to define a new function that returns the string your notes.
+
+13:51.800 --> 13:53.620
+The function should be called to get notes.
+
+13:53.630 --> 13:54.720
+Let's get that done.
+
+13:55.350 --> 14:02.340
+Const get notes equals a brand new function and all that function is going to do is return the string
+
+14:02.610 --> 14:03.740
+your notes.
+
+14:03.750 --> 14:05.040
+Dot dot dot.
+
+14:05.040 --> 14:08.100
+Later on it'll do much much more.
+
+14:08.100 --> 14:12.300
+Now step three is to make sure that this function actually gets exported.
+
+14:12.330 --> 14:17.240
+So export b get notes function right now it's defined but it's not exported.
+
+14:17.250 --> 14:20.280
+So no other file could take advantage of it right here.
+
+14:20.280 --> 14:21.530
+We're gonna fix that.
+
+14:21.570 --> 14:29.130
+I'm going to use module dot exports which we used in utilize dot J S I'm going to set it equal to the
+
+14:29.130 --> 14:30.630
+thing I want to export.
+
+14:30.690 --> 14:35.560
+In this case it is the get notes function now.
+
+14:35.720 --> 14:36.270
+No it's not.
+
+14:36.280 --> 14:37.880
+J Yes is all done.
+
+14:38.070 --> 14:40.830
+Everything else is going to happen in app dot J.
+
+14:40.830 --> 14:43.750
+S We have to load in the file.
+
+14:43.830 --> 14:46.260
+Call the function and print the message.
+
+14:46.320 --> 14:48.200
+Let's do that right here.
+
+14:48.450 --> 14:56.110
+I'm going to create a variable const I'm going to call this get notes and then going to use require
+
+14:56.130 --> 15:02.190
+to load that file in right here inside of require we pass in that string.
+
+15:02.190 --> 15:07.890
+And remember when we're loading in another file we've created we have to provide a relative path from
+
+15:07.890 --> 15:10.830
+the file we're calling require in the file.
+
+15:10.860 --> 15:18.540
+We're trying to load so dot forward slash notes dot J S and now we can actually use the get notes function.
+
+15:18.540 --> 15:24.640
+So right here const message equals I'll be calling get notes.
+
+15:24.890 --> 15:31.700
+I don't have to pass in any arguments since it doesn't take any then console dot log to print the message
+
+15:31.730 --> 15:33.090
+to the console.
+
+15:33.110 --> 15:33.980
+Perfect.
+
+15:33.980 --> 15:37.010
+Let's go ahead and see if this works down below.
+
+15:37.010 --> 15:40.070
+I'm gonna go ahead and rerun the script and what do I get.
+
+15:40.070 --> 15:41.000
+I get your notes.
+
+15:41.000 --> 15:44.090
+Dot dot dot printing which is fantastic.
+
+15:44.090 --> 15:49.370
+Now that we have this in place we're making good progress in the right direction and we can go ahead
+
+15:49.370 --> 15:55.820
+and remove all of the commented out code in this file leaving just those three lines in place.
+
+15:55.820 --> 16:02.420
+We're also going to remove the utilize dot J S file that was created for demonstration purposes.
+
+16:02.420 --> 16:08.750
+The file that you created notes dot J.S. that's actually going to stay around and play a critical role
+
+16:08.750 --> 16:10.640
+in the notes application.
+
+16:10.640 --> 16:17.020
+So now we know how to load in court node modules we know how to load and other files we've created.
+
+16:17.060 --> 16:23.630
+The last thing we need to learn about is how to load in NPM modules so we can take advantage of them
+
+16:23.720 --> 16:25.310
+in our applications.
+
+16:25.400 --> 16:28.800
+Something we'll be doing extensively throughout the class.
+
+16:28.850 --> 16:31.710
+We're going to talk about that in the next video.
+
+16:31.730 --> 16:33.250
+I'm excited to get to it.
+
+16:33.260 --> 16:35.420
+So let's go ahead and jump right in.

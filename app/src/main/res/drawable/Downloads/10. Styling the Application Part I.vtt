@@ -1,0 +1,718 @@
+WEBVTT
+
+00:00.330 --> 00:06.270
+In this video we're going to wrap up our introductory section to web servers by adding some styles to
+
+00:06.270 --> 00:07.470
+our application.
+
+00:07.500 --> 00:11.520
+So right now it is mostly unskilled and it's not looking so great.
+
+00:11.520 --> 00:17.160
+By the end we'll have a much nicer looking styled version of the app now to kick things off.
+
+00:17.160 --> 00:22.300
+I want to close all open editors and collapse all expanded directories.
+
+00:22.350 --> 00:27.210
+We're still working with the contents of the web server but I want to start from a nice clean slate
+
+00:27.210 --> 00:31.020
+without having a dozen different files open to kick things off.
+
+00:31.020 --> 00:33.280
+We're going to focus on two files.
+
+00:33.360 --> 00:41.400
+We're going to focus on these styles file in public forward slash C Ss that is styles dot C Ss and we're
+
+00:41.400 --> 00:43.650
+going to focus on one of our views.
+
+00:43.710 --> 00:48.770
+So in the views folder we can grab a file like index dot HP s.
+
+00:48.810 --> 00:54.750
+The goal is to write some styles that's going to make this page look better than the same styles will
+
+00:54.750 --> 01:01.430
+get used throughout all of our handlebars templates creating a nice unified feel for the site.
+
+01:01.440 --> 01:06.450
+Now if we are going to start by styling this home page let's go ahead and actually pull that one up
+
+01:06.450 --> 01:07.580
+in the browser.
+
+01:07.590 --> 01:09.420
+This is the weather page.
+
+01:09.420 --> 01:14.740
+Now we're ready to actually make this site look a little nicer since this is primarily a back end.
+
+01:14.740 --> 01:18.480
+Course we're not going to spend a ton of time focusing on CSX.
+
+01:18.480 --> 01:23.910
+So if you're interested in actually learning about CSX and how it works and all of the different ways
+
+01:23.910 --> 01:28.290
+it can be used there are plenty of great Udemy courses on the topic.
+
+01:28.290 --> 01:33.750
+The goal in this video is for me to just give you some basic styles that's gonna make the application
+
+01:33.750 --> 01:39.510
+look a bit nicer but the stuff we're actually going to learn about pertains to node servers and the
+
+01:39.510 --> 01:40.580
+back end.
+
+01:40.590 --> 01:44.340
+With that said let's add a few styles into the app to get started.
+
+01:44.340 --> 01:50.070
+We're going to add some styles for the body element that's going to allow us to setup some global styles
+
+01:50.070 --> 01:55.300
+for our funds and it's also going to allow us to center our site content.
+
+01:55.320 --> 02:01.010
+Let's go ahead and kick things off in styles dot SS by completely wiping everything we have.
+
+02:01.010 --> 02:08.820
+So far all seven lines we're going to end up writing maybe 40 or so lines in this file in this video
+
+02:09.090 --> 02:14.400
+and we're going to kick things off by selecting the body and setting up our curly braces.
+
+02:14.410 --> 02:18.810
+Now we'll end up putting a few different properties inside of here to start though.
+
+02:18.810 --> 02:22.140
+Let's focus on some font related items.
+
+02:22.140 --> 02:26.580
+We're going to start with color now when we set color on the body.
+
+02:26.610 --> 02:32.790
+We're setting the color for the entire site not just for a single piece of text to show you what I mean.
+
+02:32.790 --> 02:35.850
+Let's go ahead and set color to read it temporarily.
+
+02:35.850 --> 02:38.410
+That's not the value we're going to use in the long run.
+
+02:38.490 --> 02:45.060
+But if I refresh the page I can see that I now have a red header and a red paragraph in the footer.
+
+02:45.060 --> 02:49.010
+Now you'll notice that the text links those are not showing up in red.
+
+02:49.020 --> 02:52.620
+That's because anchor tags have their own custom colors.
+
+02:52.680 --> 02:57.960
+They are blue by default and purple when they've been navigated too though don't worry we'll learn how
+
+02:57.960 --> 03:00.630
+to style the colors for those as well.
+
+03:00.630 --> 03:04.050
+A bit later in the video now we're not going to use red.
+
+03:04.050 --> 03:11.010
+Instead we're going to provide a hex code a hex color code that starts with the hash sign which is shift
+
+03:11.040 --> 03:18.510
+3 followed by our hex code which in this case is going to be the number three six times one two three
+
+03:18.780 --> 03:20.790
+four five six.
+
+03:20.790 --> 03:26.700
+Now if you're not familiar with hex codes it's just a way to represent a color and if you're using design
+
+03:26.700 --> 03:32.880
+tools like sketch or photoshop you're going to end up working with colors in this hex format and then
+
+03:32.880 --> 03:37.710
+you can translate them from that design tool over to your style sheets.
+
+03:37.710 --> 03:41.110
+In this case though I'm providing the hex code for you.
+
+03:41.280 --> 03:45.180
+Now this particular hex code is still a pretty dark gray.
+
+03:45.390 --> 03:47.760
+So it's going to look kind of like what we had before.
+
+03:47.790 --> 03:50.460
+But a little nicer if I refresh the browser.
+
+03:50.490 --> 03:51.250
+What do we get.
+
+03:51.300 --> 03:55.650
+We can see that it's not quite black but it's definitely pretty close.
+
+03:55.650 --> 04:02.040
+So now that we have that in place let's go ahead and customize the font family that is the actual styles
+
+04:02.190 --> 04:08.760
+to the individual characters font family is going to allow us to get that done and we're going to start
+
+04:08.760 --> 04:13.940
+with a very simple font available on most machines which is just aerial.
+
+04:13.950 --> 04:20.740
+This is a nice sans serif font which is going to get rid of those little syrups on the individual characters.
+
+04:20.820 --> 04:26.640
+If I go ahead and refresh things we can see we now have a nice clean look from here.
+
+04:26.640 --> 04:30.030
+We're gonna go ahead and continue to add some styles to body.
+
+04:30.030 --> 04:36.530
+The goal is going to be to center our content so it's not pushed right up against the left hand side.
+
+04:36.600 --> 04:40.740
+Now to do that we're going to end up setting a few different properties.
+
+04:40.740 --> 04:49.000
+Let's go ahead and start with one that is Max hyphen with max width allows us to set a max with for
+
+04:49.020 --> 04:57.210
+the site so I can use a value like six hundred and fifty pixels as an example 650 P X and this is going
+
+04:57.210 --> 05:00.560
+to constrain how wide our content can be.
+
+05:00.580 --> 05:05.860
+Now if we refresh the browser we're going to notice there's zero change even though behind the scenes
+
+05:05.890 --> 05:12.580
+something has changed instead of our content taking up the whole with it now stops right about here.
+
+05:12.580 --> 05:16.270
+The goal is to take this block from here to here and center it.
+
+05:16.300 --> 05:19.460
+So it goes from about here to about here.
+
+05:19.750 --> 05:25.630
+We can do that with a couple properties down below what we're gonna do is set up margin.
+
+05:25.630 --> 05:31.030
+So margin is one of two spacing properties will end up using to style or applications.
+
+05:31.030 --> 05:38.020
+And in this case we're going to use it to evenly distribute space on the left and the right of the body.
+
+05:38.020 --> 05:41.140
+So all of that content shows up in the center.
+
+05:41.140 --> 05:48.100
+Now to get that done we provided two values here zero space auto followed by a semicolon.
+
+05:48.220 --> 05:52.550
+So zero is the margin value we're applying to the top and the bottom.
+
+05:52.570 --> 05:58.360
+I'm not trying to add any additional space above or below the content so we're going to leave that as
+
+05:58.360 --> 06:03.990
+zero an auto is going to evenly distribute the space on the left and the right.
+
+06:04.030 --> 06:07.390
+So the first value is the margin value for a top and bottom.
+
+06:07.450 --> 06:11.120
+The second value is the margin value for left and right.
+
+06:11.290 --> 06:14.830
+Now if we go ahead and save the content we are going to notice a difference.
+
+06:14.830 --> 06:16.260
+It is now centered.
+
+06:16.330 --> 06:19.540
+So we have a block going from about here to about here.
+
+06:19.540 --> 06:22.510
+And it's showing up in the center of the browser.
+
+06:22.510 --> 06:27.910
+Now if I was to make the browser window smaller we'll see that our content adjusts correctly.
+
+06:27.910 --> 06:31.930
+The only problem is that it's jammed up against the left hand sidebar.
+
+06:32.020 --> 06:36.190
+We can address that with a another sizing property down below.
+
+06:36.190 --> 06:38.710
+We're going to go ahead and set up padding.
+
+06:38.830 --> 06:42.800
+We are going to define two values like we did for margin.
+
+06:42.850 --> 06:44.760
+The first is going to be zero.
+
+06:44.770 --> 06:48.950
+I'm not trying to add any additional space above or below.
+
+06:49.030 --> 06:52.550
+And the second is going to be a value like 16 pixels.
+
+06:52.570 --> 06:58.990
+So in this case we're putting 16 pixels between our body content and the side of the browser window
+
+06:59.260 --> 07:02.690
+that's going to prevent things from getting jammed up against the edge of it.
+
+07:02.710 --> 07:05.170
+And if I refresh the browser what do we get.
+
+07:05.200 --> 07:09.910
+I can see there's now a little more breathing room making the site look a little nicer.
+
+07:09.910 --> 07:15.850
+Now let's bring that browser window back to its full width and we'll go ahead and continue styling our
+
+07:15.850 --> 07:16.340
+site.
+
+07:16.390 --> 07:21.030
+The next thing we're going to style is the footer and there's a reason that I'm diving into the footer
+
+07:21.040 --> 07:23.310
+before diving into the header.
+
+07:23.320 --> 07:25.980
+Now the footer markup that lives in footer.
+
+07:26.110 --> 07:26.850
+HB Yes.
+
+07:26.860 --> 07:33.610
+And over here we are going to make a small change before adding any styles H2 UML provides us with a
+
+07:33.640 --> 07:37.810
+footer element which we can use to house our footer content.
+
+07:37.810 --> 07:44.290
+So right here I'm going to set up footer and all I'm going to do is take our paragraph and I'm going
+
+07:44.290 --> 07:46.150
+to move it right inside.
+
+07:46.150 --> 07:51.130
+This is going to allow us to easily expand the footer adding more content inside of there.
+
+07:51.130 --> 07:57.430
+Now that we have our footer element set up let's go ahead and move into styles Don CSX and target it
+
+07:57.820 --> 07:58.870
+down below.
+
+07:58.870 --> 08:00.550
+We are targeting footer.
+
+08:00.550 --> 08:04.830
+We are providing a list of style is we want to apply and to kick things off.
+
+08:04.840 --> 08:09.850
+I want to talk about the differences between margin and padding if you're not familiar and the best
+
+08:09.850 --> 08:13.590
+way to illustrate this is to give our footer a background color.
+
+08:13.600 --> 08:16.250
+So right here background.
+
+08:16.320 --> 08:19.680
+Let's go ahead and use something very obvious like blue.
+
+08:19.680 --> 08:22.200
+Now we're not actually gonna keep this in place.
+
+08:22.200 --> 08:25.860
+We're just going to use it to explore a new concept.
+
+08:25.860 --> 08:30.900
+So right here we have our blue black round for the footer and you can see that all of the text is sitting
+
+08:30.930 --> 08:32.180
+right inside.
+
+08:32.190 --> 08:34.310
+Now we have two ways we can space things.
+
+08:34.310 --> 08:40.610
+We have the margin and we have the padding the padding is going to put space inside of this box.
+
+08:40.740 --> 08:46.500
+And the margin is going to put space outside of the box between the box and other items.
+
+08:46.500 --> 08:47.400
+Let's check this out.
+
+08:47.970 --> 08:51.410
+So to kick things off what I'm going to do is set up padding.
+
+08:51.660 --> 08:57.130
+I'm going to set padding equal to a single value when we use just a single value.
+
+08:57.150 --> 08:59.320
+It gets applied on all sides.
+
+08:59.340 --> 09:03.240
+So in this case I'm going to use something like 16 pixels.
+
+09:03.240 --> 09:08.580
+Now if we go ahead and refresh the page by adding padding we're putting space between the edges of the
+
+09:08.580 --> 09:10.790
+box and the content inside.
+
+09:10.800 --> 09:16.280
+So between the edge of the blue and our text if I refresh things that's exactly what we get.
+
+09:16.290 --> 09:18.780
+We have a much bigger box.
+
+09:18.780 --> 09:24.790
+Now the margin it's going to put space between these things outside of the box and the box itself.
+
+09:24.900 --> 09:30.830
+That would allow us to put some space between this blue box and the header links above.
+
+09:30.840 --> 09:33.660
+So right here let's go ahead and explore that.
+
+09:33.780 --> 09:41.010
+That's gonna be margin and I will set the value equal to something like 16 pixels I'm then going to
+
+09:41.010 --> 09:43.090
+go ahead and save the style sheet.
+
+09:43.170 --> 09:47.520
+And now I can see we have space outside of the box on all sides.
+
+09:47.520 --> 09:52.890
+So that's the difference between margin and padding and we'll end up using both throughout this course
+
+09:53.130 --> 09:57.300
+and we're actually going to use both right inside of footer to start though.
+
+09:57.330 --> 10:02.880
+Let's go ahead and wipe all three styles we set up and we're going to start by setting up color once
+
+10:02.880 --> 10:08.790
+again in the footer text color is going to be a bit lighter than the rest of the content making it not
+
+10:08.790 --> 10:15.600
+pop quite as much and for this we'll use another hex color code that is the number eight six times which
+
+10:15.600 --> 10:19.500
+is a slightly lighter gray than what we had before.
+
+10:19.500 --> 10:21.570
+Next up we're going to set up a border.
+
+10:21.750 --> 10:27.530
+So we're gonna have a border at the top of the footer by setting border high thin top.
+
+10:27.540 --> 10:33.650
+Now you have border life and left border hyphen right and border hyphen bottom for those other borders.
+
+10:33.720 --> 10:36.180
+In this case though we don't want all four borders.
+
+10:36.180 --> 10:37.900
+I just want a single one.
+
+10:37.920 --> 10:40.840
+So we're only going to set up a single one right here.
+
+10:40.860 --> 10:43.240
+We provide three values for the border.
+
+10:43.260 --> 10:51.360
+It's with I'll use one pixel the type of border like dashed or solid I'll use solid and then the hex
+
+10:51.390 --> 10:52.050
+color code.
+
+10:52.050 --> 10:53.250
+We'd like to use.
+
+10:53.340 --> 10:55.870
+I will be using a very light gray.
+
+10:55.890 --> 11:01.290
+That is the letter E six times one two three four five six.
+
+11:01.380 --> 11:06.780
+Before we go any further let's go ahead and save the style sheet refresh things in the browser.
+
+11:06.780 --> 11:13.080
+And now we can see we do indeed have our border and we do indeed have our lighter text color from here.
+
+11:13.110 --> 11:17.330
+Let's go ahead and set up a bit of spacing using padding and margin.
+
+11:17.370 --> 11:24.060
+I'm going to start off with margin and we're only going to set the top margin that is going to be space
+
+11:24.210 --> 11:27.560
+between the box which in this case ends with the border.
+
+11:27.690 --> 11:31.150
+And what's above it which in this case is the NAV items.
+
+11:31.170 --> 11:37.180
+Now we could use margin but there's also shorthand for margin top left bottom and right.
+
+11:37.200 --> 11:42.660
+So right here I'll just set margin top since that's the only value I actually want to configure and
+
+11:42.660 --> 11:45.220
+I'll use 16 pixels for that.
+
+11:45.240 --> 11:47.960
+Next up I'm also going to set up the padding.
+
+11:47.970 --> 11:50.850
+So I'm going to have a little bit of padding inside of there.
+
+11:50.880 --> 11:57.780
+Right here I'm going to set up 16 pixels for the top and the bottom and I'll do zero for the left and
+
+11:57.780 --> 11:58.830
+the right.
+
+11:58.860 --> 12:03.360
+Now with this in place let's go ahead and refresh our styles to see what we get.
+
+12:03.390 --> 12:04.410
+In there we go.
+
+12:04.440 --> 12:07.050
+We have a nice styled footer now.
+
+12:07.110 --> 12:10.890
+Currently it's still pushed up near the top of the page a bit later.
+
+12:10.890 --> 12:15.960
+We'll learn how to make that stick near the bottom where you'd expect the footer to live.
+
+12:15.960 --> 12:21.030
+But now that we have the footer styled for the most part we're going to focus on the header.
+
+12:21.060 --> 12:26.900
+Now the mark up for the header that lives in a different file that is in header dot HB Yes.
+
+12:26.940 --> 12:33.060
+So let's take a moment to crack that open and make a couple of small modifications HDMI l provides us
+
+12:33.060 --> 12:38.550
+with a header element that we can use to house our header content and that's what we're gonna use.
+
+12:38.550 --> 12:44.520
+I'm going to remove the div in our current tag and swap it out with header and I'll do the same thing
+
+12:44.520 --> 12:51.210
+in the closing tag down below and we're gonna do from here is take the H1 and put it right inside so
+
+12:51.240 --> 12:55.790
+I'll cut the H1 out down below I'll add it right in and there we go.
+
+12:55.800 --> 12:57.370
+This is the final structure.
+
+12:57.390 --> 13:00.540
+We're going to end up using for the header now by default.
+
+13:00.540 --> 13:03.190
+This isn't going to change the look of the site at all.
+
+13:03.240 --> 13:10.200
+But now we can actually target everything with C Ss and customize the look and feel to get started over
+
+13:10.200 --> 13:12.140
+in styles dot C Ss.
+
+13:12.160 --> 13:19.560
+I'm going to setup a style targeting header and we are going to provide just the margin.
+
+13:19.590 --> 13:25.110
+So the goal here is to add a little space between the header and the content below and between the header
+
+13:25.290 --> 13:28.530
+and the top of the browser window up above.
+
+13:28.530 --> 13:32.010
+So we want to set margin top and margin bottom.
+
+13:32.010 --> 13:35.200
+I can do that using margin hyphen top.
+
+13:35.430 --> 13:38.150
+I'll use a value of 16 pixels for that.
+
+13:38.280 --> 13:42.620
+Then I can also set margin I thin bottom using a bigger value.
+
+13:42.630 --> 13:46.560
+Let's go ahead and use something like forty eight pixels not forty seven.
+
+13:46.590 --> 13:47.610
+That was a typo.
+
+13:47.610 --> 13:48.650
+Perfect.
+
+13:48.660 --> 13:51.540
+Now we have a nice set of styles provided.
+
+13:51.540 --> 13:56.400
+And if I refresh things we have just a bit more space surrounding our content.
+
+13:56.400 --> 14:02.670
+Next up we are going to target our header that is the H one element and we are going to make the font
+
+14:02.700 --> 14:03.660
+much bigger.
+
+14:03.660 --> 14:05.270
+And we're gonna give it a bit more spacing.
+
+14:05.280 --> 14:12.180
+So right here I am going to set up font size to customize how big the font is.
+
+14:12.180 --> 14:16.860
+And in this case we're going to use something much bigger like 64 pixels.
+
+14:16.890 --> 14:22.350
+I'll also set up margin hyphen bottom to but to put some spacing down below.
+
+14:22.470 --> 14:23.270
+Perfect.
+
+14:23.460 --> 14:25.040
+I'm going to save the file.
+
+14:25.140 --> 14:26.380
+Give things a refresh.
+
+14:26.400 --> 14:30.060
+And now we can see our headers really starting to come together.
+
+14:30.090 --> 14:33.590
+The next thing we want to style are the navigation items.
+
+14:33.600 --> 14:39.030
+So we have our three links in here we want to customize these styles for each.
+
+14:39.030 --> 14:42.210
+Now there are a few different ways we can style our links.
+
+14:42.210 --> 14:49.880
+One approach would be to just head into styles Don CSX target the a element and then set up our styles.
+
+14:49.890 --> 14:55.200
+Now the problem with this is that if we have links anywhere else in our site like somewhere as the help
+
+14:55.200 --> 15:00.990
+page content they're going to take on the exact same style as our NAV items which is likely not what
+
+15:00.990 --> 15:01.900
+we want.
+
+15:01.920 --> 15:05.760
+So we're going to go ahead and customize things just a little bit.
+
+15:05.940 --> 15:11.930
+What I'm going to go ahead and do is target using the following selector.
+
+15:12.000 --> 15:14.940
+So I'm targeting header then inside of there.
+
+15:14.970 --> 15:16.410
+That's what the space does.
+
+15:16.500 --> 15:18.680
+I'm looking for any links.
+
+15:18.690 --> 15:23.550
+So here we are just targeting our links inside of the header.
+
+15:23.610 --> 15:29.910
+And now we can target those specifically without changing links throughout the entire site right here.
+
+15:29.910 --> 15:33.630
+Let's go ahead and add a couple of styles for our navigation items.
+
+15:33.630 --> 15:41.770
+First up we are going to change the color I will use the Hex Code 8 8 8 8 8 8.
+
+15:41.840 --> 15:48.950
+Then we're going to set up a margin property margin hyphen right to put some space between all of these
+
+15:48.950 --> 15:49.630
+items.
+
+15:49.730 --> 15:52.920
+We can use something pretty small like 16 pixels.
+
+15:53.000 --> 15:56.070
+And then lastly we want to remove that underline.
+
+15:56.110 --> 16:03.080
+Well it's a stylistic choice and I'm choosing to do that and we do that using text hyphen decoration.
+
+16:03.080 --> 16:08.750
+You can set text decoration equal to underline to underline pretty much anything you'd like.
+
+16:08.930 --> 16:13.960
+But in this case we don't want to set it to underline which is the default value for our links.
+
+16:13.970 --> 16:18.490
+Instead we're going to set it to none which removes that underline.
+
+16:19.010 --> 16:25.130
+So now we should see links in a lighter color with a bit of space between them without the underline
+
+16:25.190 --> 16:25.810
+showing.
+
+16:25.820 --> 16:28.740
+And if I refresh things that is exactly what we get.
+
+16:28.910 --> 16:31.440
+Now these sites are really starting to come together.
+
+16:31.460 --> 16:37.310
+I can navigate between the pages and I can see that my header and footer styles come with me.
+
+16:37.400 --> 16:42.170
+So now that we have the header and footer styled that's where we're gonna stop for this one.
+
+16:42.170 --> 16:46.700
+There's a few more things we'll be adding but I don't want this video to get too long as I'm going to
+
+16:46.700 --> 16:49.760
+break it into two parts in the next video.
+
+16:49.820 --> 16:55.370
+We'll finish this little bonus on styling the application and we'll finally wrap up the section.
+
+16:55.370 --> 16:56.350
+I'll see you next time.
